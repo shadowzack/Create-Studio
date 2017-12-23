@@ -1,0 +1,441 @@
+header,
+main,
+section,
+footer,
+article {
+    display: block;
+}
+
+ul {
+    list-style: none
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top_nav {
+    background: #fff;
+    box-sizing: border-box;
+    max-height: 300px;
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+    margin-top: 0;
+}
+
+.create_logo {
+    width: 130px;
+    padding-right: 46px;
+}
+
+.main_menu li a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(49, 49, 49, 0.753);
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 54px;
+    padding: 5px 30px;
+    letter-spacing: 0.75px;
+    display: inline-block;
+    transition: 0.04s ease-in;
+    text-transform: uppercase;
+}
+
+.main_menu li {
+    transition: 0.04s ease-in;
+}
+
+.main_menu li a:hover {
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+.main_menu li:hover {
+    background: #383736;
+}
+
+.main_menu {
+    display: flex;
+    width: 75%;
+}
+
+.nav_wrapper {
+    display: flex;
+}
+
+#hamburger {
+    display: none;
+    position: relative;
+    top: 25px;
+    right: 10px;
+    z-index: 6;
+    -webkit-user-select: none;
+    user-select: none;
+
+ 
+}
+
+#hamburger input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 7;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+
+
+/*
+ * Just a quick hamburger
+ */
+
+#hamburger span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #696969;
+    border-radius: 0px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#hamburger span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#hamburger span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+
+#hamburger input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+
+/*
+ * But let's hide the middle one.
+ */
+
+#hamburger input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+
+#hamburger input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+#hamburger_menu {
+    display: none;
+    /*  position: absolute;
+width: 300px;
+
+  top: -40px;
+  right: -10px;*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    padding-right: 50px;
+    padding-top: 5px;
+    background: #ffffff;
+    transform-origin: 0% 0%;
+    transform: translate(0, -1200%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#hamburger_menu li:not(:first-child) a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(49, 49, 49, 0.753);
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+    display: inline-block;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    padding-left: 25px;
+    border-bottom: 1px solid rgba(156, 156, 156, 0.425);
+   overflow: auto;
+}
+
+#hamburger_menu li:not(:first-child):hover a {
+    color: whitesmoke;
+    text-transform: uppercase;
+    background: #383736;
+}
+
+
+/*
+ * And let's slide it in from the left
+ */
+
+ #hamburger input:checked~ul {
+    transform: none;
+
+}
+
+
+@media only screen and (min-width: 960px) {
+    .top_nav {
+        height: 66px;
+    }
+    .top_nav .nav_wrapper {
+        padding: 0 20px;
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 1135px) {
+    .main_menu li a {
+        padding: 5px 20px;
+    }
+}
+
+@media only screen and (max-width:959px) {
+    .main_menu {
+        display: none;
+    }
+    .user {
+        display: none;
+    }
+    .user_profile {
+        display: none;
+    }
+    .user_profile section:first-child {
+        display: none;
+    }
+    #hamburger_menu {
+        display: block;
+    }
+    #hamburger {
+        display: block;
+    }
+
+
+    
+
+}
+
+.user {
+    height: 100%;
+    display: block;
+    padding: 0;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.user_profile {
+    height: 100%;
+    float: right;
+    padding: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+.user_profile section:first-child {
+    height: 100%;
+    background-image: url("../images/creat1.jpeg");
+    background-repeat: no-repeat;
+    background-position: right;
+    border-radius: 50px;
+}
+
+
+/*hello darkness my old freidn*/
+
+.home_container {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.home_container img {
+    width: 100%;
+}
+
+.text_block {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    z-index: 4;
+    background-color: rgba(255, 255, 255, 0.63);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.text_block img {
+    width: 100%;
+}
+
+.text_block h1,
+h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    color: #606060;
+    padding-bottom: 2px;
+}
+
+button {
+    position: relative;
+    display: block;
+    height: 40px;
+    width: 200px;
+    margin: 10px 7px;
+    padding: 5px 5px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #383736;
+    border: 2px #383736 solid;
+    border-radius: 7px;
+    text-transform: uppercase;
+    outline: 0;
+    overflow: hidden;
+    background: none;
+    z-index: 4;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.fill:hover {
+    color: whitesmoke;
+    background: #383736;
+}
+
+.fill:before {
+    content: "";
+    position: absolute;
+    background: #2c2b2b;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.18s ease-in;
+}
+
+.fill:hover:before {
+    top: 0;
+}
+
+
+/*
+
+.botton {
+    background-color: #0c59cf;
+   
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100px;
+}*/
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 250px;
+}
+
+#footer_f {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5%;
+}
+
+#footer_f img {
+    display: block;
+    padding: 3% 3% 0px 3%;
+}
+
+#footer_f p {
+    font-size: 20px;
+    padding: 3%;
+    text-align: center;
+}
+
+#footer_s {
+    flex: 5;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 220px;
+    margin-top: 15px;
+}
+
+#footer_s ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#footer_s ul li {
+    padding: 7px;
+}
+
+#footer_s ul li:first-child {
+    padding: 20px;
+    font-size: 20px;
+}
+
+#footer_s ul li:last-child {
+    padding-bottom: 20px;
+}
+
+#footer_t {
+    flex: 2;
+}
