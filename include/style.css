@@ -91,16 +91,11 @@ a {
     right: -5px;
     cursor: pointer;
     opacity: 0;
-    /* hide this */
     z-index: 7;
-    /* and place it over the hamburger */
     -webkit-touch-callout: none;
 }
 
 
-/*
- * Just a quick hamburger
- */
 
 #hamburger span {
     display: block;
@@ -124,49 +119,22 @@ a {
 }
 
 
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-
+/*hamburger animation*/
 #hamburger input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #232323;
 }
-
-
-/*
- * But let's hide the middle one.
- */
-
 #hamburger input:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
-
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-
 #hamburger input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
 
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-
 #hamburger_menu {
     display: none;
-    /*  position: absolute;
-width: 300px;
-
-  top: -40px;
-  right: -10px;*/
     position: fixed;
     top: 0;
     right: 0;
@@ -203,11 +171,6 @@ width: 300px;
     text-transform: uppercase;
     background: #383736;
 }
-
-
-/*
- * And let's slide it in from the left
- */
 
  #hamburger input:checked~ul {
     transform: none;
@@ -252,7 +215,55 @@ width: 300px;
     }
 
 
+
+    footer{
+        flex-direction: column;
+    }
+
+ footer .footer_s{display: none}
+
+}
+@media only screen and (max-width:959px) and (min-width:500px) {
+
+    .text_block h1,
+    h3 {
+  
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
     
+  .text_block  button {
+        margin: 6px 4px;
+        padding: 4px 4px;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0px;
+        border-radius: 3px;
+
+    }
+
+
+
+}
+
+@media only screen and (max-width:499px) {
+  
+      .text_block h1,
+    h3 {
+  
+        font-size: 12px;
+        letter-spacing: 0px;
+    }
+    
+  .text_block  button {
+        margin: 3px 2px;
+        padding: 2px 2px;
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0px;
+        border-radius: 2px;
+
+    }
 
 }
 
@@ -323,8 +334,8 @@ h3 {
 button {
     position: relative;
     display: block;
-    height: 40px;
-    width: 200px;
+    height: 20%;
+    width: 60%;
     margin: 10px 7px;
     padding: 5px 5px;
     font-weight: 700;
@@ -382,29 +393,29 @@ button {
 footer {
     display: flex;
     width: 100%;
-    height: 250px;
+    max-height: 500px;
 }
 
-#footer_f {
+.footer_f {
     flex: 2;
-    display: flex;
+  display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 0.5%;
 }
 
-#footer_f img {
+.footer_f img {
     display: block;
     padding: 3% 3% 0px 3%;
 }
 
-#footer_f p {
+.footer_f p {
     font-size: 20px;
     padding: 3%;
     text-align: center;
 }
 
-#footer_s {
+.footer_s {
     flex: 5;
     border-left: 2px solid black;
     border-right: 2px solid black;
@@ -413,29 +424,32 @@ footer {
     justify-content: space-around;
     font-family: Arial, Helvetica, sans-serif;
     height: 220px;
-    margin-top: 15px;
+    margin-top: 1%;
 }
 
-#footer_s ul {
+.footer_s ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
-#footer_s ul li {
+.footer_s ul li {
     padding: 7px;
 }
 
-#footer_s ul li:first-child {
+.footer_s ul li:first-child {
     padding: 20px;
     font-size: 20px;
 }
 
-#footer_s ul li:last-child {
-    padding-bottom: 20px;
+.footer_s ul li:last-child {
+    padding-bottom: 0.1%;
 }
 
-#footer_t {
+.footer_t {
     flex: 2;
+    margin-top: 0.5%;
+    color: #606060;
+    text-align: center;
 }
