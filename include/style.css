@@ -19,6 +19,9 @@ a {
     text-decoration: none;
 }
 
+
+/*main nav*/
+
 .top_nav {
     background: #fff;
     box-sizing: border-box;
@@ -52,7 +55,7 @@ a {
     transition: 0.04s ease-in;
 }
 
-.main_menu li a:hover {
+.main_menu li:hover a {
     color: whitesmoke;
     text-transform: uppercase;
 }
@@ -78,8 +81,6 @@ a {
     z-index: 6;
     -webkit-user-select: none;
     user-select: none;
-
- 
 }
 
 #hamburger input {
@@ -94,8 +95,6 @@ a {
     z-index: 7;
     -webkit-touch-callout: none;
 }
-
-
 
 #hamburger span {
     display: block;
@@ -120,15 +119,18 @@ a {
 
 
 /*hamburger animation*/
+
 #hamburger input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #232323;
 }
+
 #hamburger input:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 #hamburger input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
@@ -163,7 +165,7 @@ a {
     padding: 10px 5px;
     padding-left: 25px;
     border-bottom: 1px solid rgba(156, 156, 156, 0.425);
-   overflow: auto;
+    overflow: auto;
 }
 
 #hamburger_menu li:not(:first-child):hover a {
@@ -172,11 +174,9 @@ a {
     background: #383736;
 }
 
- #hamburger input:checked~ul {
+#hamburger input:checked~ul {
     transform: none;
-
 }
-
 
 @media only screen and (min-width: 960px) {
     .top_nav {
@@ -213,58 +213,51 @@ a {
     #hamburger {
         display: block;
     }
-
-
-
-    footer{
+    footer {
         flex-direction: column;
     }
-
- footer .footer_s{display: none}
-
+    footer .footer_s {
+        display: none
+    }
 }
-@media only screen and (max-width:959px) and (min-width:500px) {
 
+@media only screen and (max-width:959px) and (min-width:500px) {
     .text_block h1,
     h3 {
-  
         font-size: 15px;
         letter-spacing: 2px;
     }
-    
-  .text_block  button {
+    .text_block button {
         margin: 6px 4px;
         padding: 4px 4px;
         font-weight: 700;
         font-size: 12px;
         letter-spacing: 0px;
         border-radius: 3px;
-
     }
-
-
-
 }
 
 @media only screen and (max-width:499px) {
-  
-      .text_block h1,
+    .text_block h1,
     h3 {
-  
         font-size: 12px;
         letter-spacing: 0px;
     }
-    
-  .text_block  button {
+    .text_block button {
         margin: 3px 2px;
         padding: 2px 2px;
         font-weight: 700;
         font-size: 10px;
         letter-spacing: 0px;
         border-radius: 2px;
-
     }
+}
 
+@media only screen and (max-width:410px) and (min-width:300px) {
+    #categories .cat_container li {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 .user {
@@ -292,7 +285,10 @@ a {
 }
 
 
-/*hello darkness my old freidn*/
+/*-------------------------------main content-------------------------------------------------*/
+
+
+/*index */
 
 .home_container {
     width: 100%;
@@ -310,7 +306,6 @@ a {
     right: 50%;
     transform: translate(50%, 50%);
     z-index: 4;
-   
     color: white;
     display: flex;
     flex-direction: column;
@@ -329,14 +324,14 @@ h3 {
     letter-spacing: 1px;
     color: #ffffff;
     padding-bottom: 2px;
-    font-size: 5vw ;
+    font-size: 5vw;
 }
 
 button {
     position: relative;
     display: block;
-   height: 40%;
-   width: 50%;
+    height: 40%;
+    width: 50%;
     margin: 10px 7px;
     padding: 5px 5px;
     font-weight: 700;
@@ -376,21 +371,59 @@ button {
     top: 0;
 }
 
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
 
-/*
+.video-responsive iframe,
+video {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 
-.botton {
-    background-color: #0c59cf;
-   
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    width: 100px;
-}*/
+
+/*explore*/
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+    margin-top: 2%;
+    padding: 0 10% 0 10%;
+}
+
+#categories {
+    max-width: 100%;
+    text-align: center
+}
+
+#categories h1 {
+    padding: 2%;
+    font-size: 1.4vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #808080
+}
+
+.cat_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cat_container li {
+    background: rebeccapurple;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 10px;
+}
+
+
+/*--------------------footer-------------------------------------------------------------*/
 
 footer {
     display: flex;
@@ -400,7 +433,7 @@ footer {
 
 .footer_f {
     flex: 2;
-  display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 0.5%;
@@ -454,20 +487,4 @@ footer {
     margin-top: 0.5%;
     color: #606060;
     text-align: center;
-}
-
-
-
-.video-responsive{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-.video-responsive iframe,video{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
 }
