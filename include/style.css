@@ -310,7 +310,7 @@ a {
     right: 50%;
     transform: translate(50%, 50%);
     z-index: 4;
-    background-color: rgba(255, 255, 255, 0.63);
+   
     color: white;
     display: flex;
     flex-direction: column;
@@ -327,22 +327,23 @@ a {
 h3 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 1px;
-    color: #606060;
+    color: #ffffff;
     padding-bottom: 2px;
+    font-size: 5vw ;
 }
 
 button {
     position: relative;
     display: block;
-    height: 20%;
-    width: 60%;
+   height: 40%;
+   width: 50%;
     margin: 10px 7px;
     padding: 5px 5px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 3vw;
     letter-spacing: 2px;
-    color: #383736;
-    border: 2px #383736 solid;
+    color: #ffffff;
+    border: 2px #ffffff solid;
     border-radius: 7px;
     text-transform: uppercase;
     outline: 0;
@@ -356,6 +357,7 @@ button {
 .fill:hover {
     color: whitesmoke;
     background: #383736;
+    border-color: #383736;
 }
 
 .fill:before {
@@ -452,4 +454,20 @@ footer {
     margin-top: 0.5%;
     color: #606060;
     text-align: center;
+}
+
+
+
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe,video{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="include/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Create Studio</title>
 </head>
 
@@ -128,29 +129,44 @@
         <section class="home_container">
             <!-- <img src="images/homepage.jpeg" style="opacity:0.9;"alt=""> -->
 
-            
-            <div style="position:relative;
+
+            <!-- <div style="position:relative;
             position: relative;
 	        padding-bottom: 56.25%; /* 16:9 */
 	        padding-top: 25px;
 	        height: 0; ">
-            <iframe style=" display:block; position: absolute; top: 0;left: 0;" 
-            width="100%" height="100%" src="https://www.youtube.com/embed/sCGuSqBjhfE?rel=0&controls=0&showinfo=0&autoplay=1&mute=1&loop=1"
-             frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-                <div style="  position: absolute;
+           
+           -->
+            <!-- this is sedon try
+            <div id="muteYouTubeVideoPlayer"
+            style=" display:block; position: absolute; top: 0;left: 0;width:100%;height:100%;" ></div>
+            <script async src="https://www.youtube.com/iframe_api"></script> -->
+
+
+
+
+            <div style="  position: absolute;
                 top: 0;
                 left: 0;
                  width:100%;
                  height:100%;
                  z-index:3;
-                 background:rgb(0, 0, 0);"></div>
+                 background:rgba(0, 0, 0, 0);"></div>
+
+            <div class="video-responsive">
+
+        
+
+                <video id="vid_vid" src="" autoplay loop muted poster="images/vid_poster.png"></video>
+                
+
+                <iframe id="vid_you" src=""
+                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
             </div>
 
 
             <div class="text_block">
-                <div class="">
-                    <img src="images\logo_png.png" alt="">
-                </div>
+
 
                 <div>
                     <h1>CREATE.EXPRESS.INSPIRE</h1>
@@ -244,6 +260,22 @@
             </div>
         </section>
     </footer>
+
+<script>
+    var ios = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+    if (ios) {
+        document.getElementById("vid_you").style.display="none";
+      document.getElementById("vid_you").style.display="none";
+      document.getElementById("vid_vid").src="images/vidTrim.mp4";
+    }
+    else{
+        document.getElementById("vid_vid").style.display="block";
+        document.getElementById("vid_you").style.display="block";
+        document.getElementById("vid_you").src="https://www.youtube.com/embed/ejX4OrNvqhE?rel=0&controls=0&showinfo=0&autoplay=1&loop=1&list=PLB18xrQgSkncvfC4H2NvLcooaqZBJzqn2&mute=1";
+    }
+    
+    </script>
+
 </body>
 
 </html>
