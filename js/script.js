@@ -121,6 +121,19 @@ if (window.jQuery) {
 
 
 
+$('#right-button').click(function() {
+  event.preventDefault();
+  $('#content').animate({
+    scrollLeft: "+=164px"
+  }, "slow");
+});
+
+ $('#left-button').click(function() {
+  event.preventDefault();
+  $('#content').animate({
+    scrollLeft: "-=164px"
+  }, "slow");
+});
 
 
 
@@ -147,8 +160,7 @@ if (window.jQuery) {
 
 
 
-
-
+/*
 
 
 function onYouTubeIframeAPIReady() {
@@ -175,3 +187,4 @@ function onYouTubeIframeAPIReady() {
       }
     });
    }
+*/

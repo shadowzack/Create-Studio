@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="include/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Create Studio</title>
+ <title>Create Studio</title>
+ 
 </head>
 
 <body>
@@ -127,25 +127,42 @@
     <main>
 
         <section class="wrapper">
-            <section id="categories">
                 <h1>Search by Category</h1>
-                <ul class="cat_container">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+
+
+              
+                           
+                            
+               <section class="cat_wrapper">
+                   
+                <button id="left-button">
+                   <
+                  </button>
+                
+
+    
+                <div class="cat_container" id="content">
+
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+
+                   
+                     
+                </div>
+                <button id="right-button">
+                   >
+                  </button>
             </section>
 
-
-
-            <section id="categories">
+            <section id="explore_data">
                 <h1>Explore</h1>
-                <ul class="cat_container">
+                <ul class="data_container">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -264,20 +281,8 @@
         </section>
     </footer>
 
-    <script>
-        var ios = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
-        if (ios) {
-            document.getElementById("vid_you").style.display = "none";
-            document.getElementById("vid_you").style.display = "none";
-            document.getElementById("vid_vid").src = "images/vidTrim.mp4";
-        } else {
-            document.getElementById("vid_vid").style.display = "block";
-            document.getElementById("vid_you").style.display = "block";
-            document.getElementById("vid_you").src =
-                "https://www.youtube.com/embed/ejX4OrNvqhE?rel=0&controls=0&showinfo=0&autoplay=1&loop=1&list=PLB18xrQgSkncvfC4H2NvLcooaqZBJzqn2&mute=1";
-        }
-    </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
