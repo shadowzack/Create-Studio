@@ -259,7 +259,10 @@ a {
         height: 120px;
     }
 }
-
+@media only screen and (max-width:1784px)
+{
+    .wrapper .cat_wrapper button{display: block}
+}
 .user {
     height: 100%;
     display: block;
@@ -327,7 +330,7 @@ h3 {
     font-size: 5vw;
 }
 
-.text_box button {
+.text_block button {
     position: relative;
     display: block;
     height: 40%;
@@ -394,15 +397,11 @@ video {
     margin: 0 auto;
     max-width: 100%;
     margin-top: 2%;
-    padding: 0 10% 0 10%;
+    padding: 0 8% 0 8%;
+    text-align: center;
 }
 
-#categories {
-    max-width: 100%;
-    text-align: center;
-   
-   
-}
+
 
 .cat_container::-webkit-scrollbar { 
     display: none;  
@@ -426,7 +425,7 @@ video {
    /* min-width: min-content;*/
     
     overflow:  auto;
-    
+    margin: 0 auto;
 }
 .cat_container div {
     background: rebeccapurple;
@@ -448,6 +447,7 @@ video {
     font-weight: 700px;
     color: whitesmoke;
     background: #000000;
+    display: none;
     
 }
 
