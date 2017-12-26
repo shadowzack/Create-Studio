@@ -137,33 +137,31 @@
                   </button>
             </section>
 
+            <div id="myModal" class="modal" >
+               
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal_content">
+                   <section class="img_holder" >
+                    <img src="../images/creat1.jpeg" alt="">
+                   </section>
+                   <section class="content_holder">
+                    <section></section>
+                    <section></section>
+                    <section></section>
+                    <section>
+                        <input type="text" placeholder="Add a comment ....">
+                    </section>
+                   </section>
+                </div>
+              </div>  
+
+
             <section id="explore_data">
                 <h1>Explore</h1>
-                <ul class="data_container">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul id="data_container">
+               
+                    
+                    
                 </ul>
             </section>
         </section>
@@ -258,8 +256,14 @@
         </section>
     </footer>
 
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        (function () {
+            var explore = new exploreFeed();
+        })();
+    </script>
 </body>
 
 </html>

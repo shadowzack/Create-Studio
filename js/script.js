@@ -48,28 +48,90 @@ if (window.jQuery) {
 }
 }
 */
+function feedElement(current) {
 
+  var liElm = document.createElement('li');
+  var divElm = document.createElement('div');
 
+  var appendElms = function () {
 
 
+    var tmp=document.getElementById('data_container').appendChild(liElm);
+   
+    tmp.appendChild(divElm);
+    tmp.addEventListener('click',openModal);
+ 
+  }
+    var  openModal = function() {
 
+      document.getElementById('myModal').style.display = "block";
+     
+    }
 
 
 
+  appendElms();
+}
 
+function exploreFeed() {
+  var obj;
+  for (let index = 0; index < 20; index++) {
+    obj = new feedElement(index);
+   
+  }
 
+}
 
 
 
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
 
 
 
 
+/*
+// Open the Modal
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
 
+// Close the Modal
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
 
+var slideIndex = 1;
+showSlides(slideIndex);
 
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
 
 
 
@@ -83,6 +145,7 @@ if (window.jQuery) {
 
 
 
+*/
 
 
 
@@ -121,14 +184,24 @@ if (window.jQuery) {
 
 
 
-$('#right-button').click(function() {
+
+
+
+
+
+
+
+
+
+
+$('#right-button').click(function () {
   event.preventDefault();
   $('#content').animate({
     scrollLeft: "+=164px"
   }, "slow");
 });
 
- $('#left-button').click(function() {
+$('#left-button').click(function () {
   event.preventDefault();
   $('#content').animate({
     scrollLeft: "-=164px"
