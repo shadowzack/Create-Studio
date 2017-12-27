@@ -421,7 +421,7 @@ video {
 }
 
 .cat_container {
-    display: inline-block;
+    display: flex;
     max-width: 100%;
     text-align: center;
     white-space: nowrap;
@@ -436,7 +436,36 @@ video {
     height: 160px;
     margin-bottom: 10px;
     border-left: 2px solid whitesmoke;
-    display: inline-block;
+    flex-shrink: 0;
+    position: relative;
+}
+.cat_container div img {
+    width: 100%;
+    height: 100%;
+   
+   
+}
+.cat_container div div {
+
+   position: absolute;
+   top: 0; right: 0;
+   bottom: 0; left: 0;
+   width: 100%;
+   height: 100%;
+   
+   background-color: rgba(0, 0, 0, 0.568);
+display: flex;
+flex-direction:row;
+align-items: center;
+
+
+}
+.cat_container div div h1{
+    color: white;
+    margin: 0 auto;
+    font-size: 100%;
+    text-transform: uppercase;
+   
 }
 
 .cat_wrapper {
@@ -476,18 +505,16 @@ video {
 }
 
 #data_container li {
-    background-image: url("../images/photos.jpg");
+  /*  background-image: url("../images/photos.jpg");
     background-repeat:no-repeat;
     background-size: cover;
-    background-position:center;
+    background-position:center;*/
     width:24%;
     height: 15vw;
     margin-bottom: 10px;
     position: relative;
 }
-#data_container li:hover div {
-    opacity: 0.5;
-}
+
 #data_container li div {
     position: absolute;
     top: 0;
@@ -496,11 +523,18 @@ video {
     right: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: .5s ease;
     background-color: rgb(0, 0, 0);
   }
+  #data_container li div img{
+      width: 100%;
+      height: 100%;
 
+  }
+  #data_container li:hover div img {
+    opacity: 0.5;
+}
 /*create*/
 
   .create_imgData{
@@ -683,11 +717,12 @@ video {
       flex: 1;
      
       border-bottom: 1px solid #d4d4d4;
+
   }
   .content_holder section:nth-child(2){
     flex: 7;
     
-    overflow-y: auto;
+    overflow-y: scroll;
     border-bottom: 1px solid #d4d4d4;
 }
 .content_holder section:nth-child(3){
@@ -753,7 +788,35 @@ outline: transparent;
 
 
 
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2%;
+    margin-top: -50px;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: 1.2vw;
+    border-radius:3px 0 0 3px;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: rgba(255, 255, 255, 0.63);
+    right: 100%;
+  }
 
+  .next {
+    left: 100%;
+    border-radius:  0 3px 3px 0 ;
+  }
+  
+.next:hover,.prev:hover{
+background: #fff;
+}
+ 
+  
+  
 
 
 

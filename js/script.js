@@ -48,23 +48,39 @@ if (window.jQuery) {
 }
 }
 */
+
+
+
+
+
+
+
 function feedElement(current) {
 
   var liElm = document.createElement('li');
   var divElm = document.createElement('div');
-
+  var imgElm = document.createElement('img');
   var appendElms = function () {
 
 
     var tmp=document.getElementById('data_container').appendChild(liElm);
    
-    tmp.appendChild(divElm);
+   var inner_div=tmp.appendChild(divElm);
+    var inner_div_img=inner_div.appendChild(imgElm);
+    if(current%2==0){
+    inner_div_img.src="../images/creat1.jpeg"
+    }
+    else{
+    inner_div_img.src="../images/vid_poster.png"
+    }
     tmp.addEventListener('click',openModal);
  
   }
     var  openModal = function() {
 
       document.getElementById('myModal').style.display = "block";
+      var tmp= this.firstChild.firstChild;
+      document.getElementById('current_modal_img').src=tmp.src;
      
     }
 
@@ -147,8 +163,53 @@ function showSlides(n) {
 
 */
 
+var arr=new Array();
+arr[0]='adventure';
+arr[1]='animal';
+arr[2]='education';
+arr[3]='food';
+arr[4]='music';
+arr[5]='sport';
+arr[6]='tech';
+arr[7]='travel';
+
+function initCat(current) {
+
+  var divElm = document.createElement('div');
+  var imgElm=document.createElement('img');
+  var appendElms = function () {
 
 
+    var tmp=document.getElementById('content').appendChild(divElm);
+   
+   imgtmp= tmp.appendChild(imgElm);
+    imgtmp.id="cat_"+arr[current];
+    imgtmp.src="../images/"+arr[current]+".jpg";
+  
+   inner_div= divElm.appendChild(document.createElement('div'));
+   inner_div.innerHTML+="<h1>"+arr[current]+"</h1>";
+   // tmp.addEventListener('click',openModal);
+ 
+  }
+    var  openModal = function() {
+
+      document.getElementById('myModal').style.display = "block";
+     
+    }
+
+
+
+  appendElms();
+}
+
+function loadCat() {
+  var obj;
+  for (let index = 0; index < 8; index++) {
+    obj = new initCat(index);
+   
+  }
+
+}
 
 
 

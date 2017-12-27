@@ -118,20 +118,9 @@
                 
 
     
-                <div class="cat_container" id="content">
-
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-
-                    <div>9</div>
-                     
+                <div class="cat_container" id="content">  
                 </div>
+                
                 <button id="right-button">
                    >
                   </button>
@@ -139,15 +128,26 @@
 
             <div id="myModal" class="modal" >
                
+            
+
                 <span class="close cursor" onclick="closeModal()">&times;</span>
                 <div class="modal_content">
+                        
+
                    <section class="img_holder" >
-                    <img src="../images/creat1.jpeg" alt="">
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <img src="" id="current_modal_img" alt="">
                    </section>
                    <section class="content_holder">
                     <section></section>
                     <section></section>
-                    <section></section>
+                    <section>
+                        
+
+
+
+                    </section>
                     <section>
                         <input type="text" placeholder="Add a comment ....">
                     </section>
@@ -262,6 +262,7 @@
     <script>
         (function () {
             var explore = new exploreFeed();
+            var cat= new loadCat();
         })();
     </script>
 </body>
