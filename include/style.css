@@ -286,39 +286,7 @@ a {
 
     
 }
-/*
-.user_profile button{ 
-    margin: auto;
-   min-width: 48%;
-    height: 70%;
 
-padding: 0px 5px 0px 5px;;
-   border: 2px solid rgb(102, 102, 102);
-   border-radius: 10px;
-   background: white;
-   
-   transition: background 0.3s;
-  text-align: center;
- 
-}
-.user_profile button a{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: rgb(0, 0, 0);
-}
-.user_profile button:hover{
-    
-    background: #383736;
-    border-color: #383736;
-}
-.user_profile button:hover a{
-    color: whitesmoke;
-}*/
 .user_profile a{
     font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
     -webkit-appearance: none;
@@ -482,7 +450,7 @@ video {
     max-width: 100%;
     text-align: center;
     white-space: nowrap;
-    /* min-width: min-content;*/
+
     overflow: auto;
     margin: 0 auto;
 }
@@ -568,10 +536,7 @@ align-items: center;
 }
 
 #data_container li {
-  /*  background-image: url("../images/photos.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-position:center;*/
+
     width:24%;
     height: 15vw;
     margin-bottom: 10px;
@@ -726,22 +691,7 @@ align-items: center;
     background-image: url("../images/studio.jpg");
  
   }
-  /* @media all and (min-width: 600px) {
-    section.clear h2 {
-      font-size: 42px;
-    }
-    section.clear p {
-      font-size: 20px;
-    }
-    section.clear.parallax h1 {
-      font-size: 20px;
-    }
-  }
-  @media all and (min-width: 960px) {
-    section.clear.parallax h1 {
-      font-size: 160px;
-    }
-  } */
+
 
 
 /*  light box*/

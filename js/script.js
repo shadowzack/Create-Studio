@@ -124,22 +124,6 @@ $('#back-to-top').on('click', function (e) {
 
 
 
-/*
-//explore buttons
-$('#right-button').click(function () {
-  event.preventDefault();
-  $('#content').animate({
-    scrollLeft: "+=164px"
-  }, "slow");
-});
-
-$('#left-button').click(function () {
-  event.preventDefault();
-  $('#content').animate({
-    scrollLeft: "-=164px"
-  }, "slow");
-});
-*/
 
 
 
