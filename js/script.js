@@ -123,6 +123,8 @@ $('#back-to-top').on('click', function (e) {
 
 
 
+
+/*
 //explore buttons
 $('#right-button').click(function () {
   event.preventDefault();
@@ -137,7 +139,27 @@ $('#left-button').click(function () {
     scrollLeft: "-=164px"
   }, "slow");
 });
+*/
 
+
+
+
+
+//create and explore buttons
+$('button[id^="rit_btn"]').click(function () {
+  event.preventDefault();
+  
+  $(this).parent().find('div').animate({
+    scrollLeft: "+=164px"
+  }, "slow");
+});
+
+$('button[id^="lft_btn"]').click(function () {
+  event.preventDefault();
+  $(this).parent().find('div').animate({
+    scrollLeft: "-=164px"
+  }, "slow");
+});
 
 //mark current page link
 function mark() {
