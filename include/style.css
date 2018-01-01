@@ -41,10 +41,10 @@ a {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgba(49, 49, 49, 0.753);
     display: block;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 54px;
-    padding: 5px 30px;
+    padding: 5px 20px;
     letter-spacing: 0.75px;
     display: inline-block;
     transition: 0.04s ease-in;
@@ -66,7 +66,7 @@ a {
 
 .main_menu {
     display: flex;
-    width: 67%;
+    width: 75%;
 }
 
 .nav_wrapper {
@@ -204,8 +204,9 @@ a {
     .user_profile {
         display: none;
     }
-    .user_profile button{
+    .user .user_profile a{
         display: none;
+       
     }
     #hamburger_menu {
         display: block;
@@ -285,21 +286,68 @@ a {
 
     
 }
-
+/*
 .user_profile button{ 
     margin: auto;
    min-width: 48%;
     height: 70%;
-text-transform: uppercase;
-font-weight: 600;
+
 padding: 0px 5px 0px 5px;;
    border: 2px solid rgb(102, 102, 102);
    border-radius: 10px;
    background: white;
-   color: rgb(0, 0, 0);
+   
+   transition: background 0.3s;
+  text-align: center;
  
 }
+.user_profile button a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+.user_profile button:hover{
+    
+    background: #383736;
+    border-color: #383736;
+}
+.user_profile button:hover a{
+    color: whitesmoke;
+}*/
+.user_profile a{
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    -webkit-appearance: none;
+    font-size: 0.9rem;
+    text-shadow: none;
+    line-height: 1.2;
+    display: inline-block;
+    outline: 0;
+    padding: 10px 10px;
+    margin: 0 10px 0 0;
+    position: relative;
+    border-radius: 3px;
+    border: 2px solid black;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    margin-left: 1px;
+  transition: background 0.3s;
 
+}
+.user_profile a:hover{
+    color: whitesmoke;
+    background: rgb(56, 55, 54);
+    border-color: rgb(56, 55, 54);
+}
 
 /*-------------------------------main content-------------------------------------------------*/
 
@@ -968,9 +1016,99 @@ align-items: center;
 
 
 
+/*---------------------------------sign up--------------------------------------------------------*/
 
 
+  .signup_container {
+    width: 100%;
+  
+    font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+    background: rgb(221, 221, 221);
+    color: rgb(80, 80, 80);
+    padding: 50px 0;
+  }
+  
+  .signup_container * {
+    box-sizing: border-box;
+  }
+  
+  .flex_outer,
+  .flex_inner {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .flex_outer {
+    max-width: 800px;
+    padding: 0 38px 0 38px;
+  }
+  
+  .flex_outer li,
+  .flex_inner {
+    display: flex;
+    flex-wrap: wrap;
+  
+    align-items: center;
+  }
+  
+  .flex_inner {
+    padding: 0 8px;
+    justify-content: flex-start;  
+  }
+  
+  .flex_outer > li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .flex_outer li label,
+  .flex_outer li p {
+    padding: 8px;
+    font-weight: 300;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+  
+  .flex_outer > li > label,
+  .flex_outer li p {
+    flex: 1 0 120px;
+    max-width: 220px;
+  }
+  
+  .flex_outer > li > label + *,
+  .flex_inner {
+    flex: 1 0 220px;
+  }
+  
+  .flex_outer li p {
+    margin: 0;
+  }
+  
+  .flex_outer li input:not([type='checkbox']):not([type="radio"]),
+  .flex_outer li textarea {
+    padding: 15px;
+    border: none;
+  }
+  
+  .flex_outer li button {
+    margin-right: auto;
+    padding: 16px 32px;
+    border: none;
+    background: rgb(77, 77, 77);
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
 
+  }
+  .flex_outer li button:hover{
+      background-color: black;
+      color: whitesmoke;
+  }
+  
+  .flex_inner li {
+    width: 100px;
+    font-size: 15px;
+  }
 
 
 
