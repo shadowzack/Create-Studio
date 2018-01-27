@@ -1,3 +1,36 @@
+<?php
+   include ('config.php');
+   session_start();
+   if(isset($_POST['signup']))
+   {
+      
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $address = $_POST['address'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $gender=$_POST['gender'];
+    $pass=$_POST['pass'];
+    $repass=$_POST['repass'];
+
+    $sql="INSERT INTO user_tb_users_254 (firstname, lastname, addresss,email,phone,gender,pass)
+    VALUES ('$firstname','$lastname','$address','$email','$phone','$gender','$pass')";
+     $result=mysqli_query($conn,$sql);
+     if($result){
+         $sql="SELECT * FROM user_tb_users_254 WHERE email='$email' ";
+         $result=mysqli_query($conn,$sql);
+         $row=mysqli_fetch_assoc($result);
+        $_SESSION["user"]=$row['firstname'];
+        $_SESSION["user_id"]=$row['email'];
+        header('Location: mymovies.php');
+     }
+     else {
+        $message="email already exists";
+     }
+   
+   }
+    
+   ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +49,9 @@
             <div class="nav_wrapper">
 
                 <section class="create_logo">
-                    <a href="index.html">
+                    <a href="index.php">
 
-                        <img src="images/logo_png.png" alt="" >
+        
                     </a>
 
 
@@ -26,10 +59,10 @@
                 </section>
                 <ul class="main_menu">
                     <li>
-                        <a href="create.html">Create</a>
+                        <a href="create.php">Create</a>
                     </li>
                     <li>
-                        <a href="explore.html">Explore</a>
+                        <a href="explore.php">Explore</a>
                     </li>
                     <li>
                         <a href="#">Features</a>
@@ -38,14 +71,14 @@
                         <a href="#">Connect</a>
                     </li>
                     <li>
-                        <a href="mymovies.html">My Movies</a>
+                        <a href="mymovies.php">My Movies</a>
                     </li>
 
                 </ul>
                 <section class="user">
                     <section class="user_profile">
-                        <a href="#">LOGIN</a>
-                        <a href="#">SIGNUP</a>
+                    <a href="login.php">LOGIN</a>
+                    <a href="signup.php">SIGNUP</a>
                       </section>
 
                 </section>
@@ -63,16 +96,16 @@
             
                     <ul id="hamburger_menu">
                         <li>
-                            <a href="index.html">
+                            <a href="index.php">
 
-                                <img src="images/logo_png.png" alt="" >
+                              
                             </a>
                         </li>
                         <li>
-                            <a href="create.html">Create</a>
+                            <a href="create.php">Create</a>
                         </li>
                         <li>
-                            <a href="explore.html">Explore</a>
+                            <a href="explore.php">Explore</a>
                         </li>
                         <li>
                             <a href="#">Features</a>
@@ -81,8 +114,14 @@
                             <a href="#">Connect</a>
                         </li>
                         <li>
-                            <a href="mymovies.html">My Movies</a>
+                            <a href="mymovies.php">My Movies</a>
                         </li>
+                        <li>
+                        <a href="login.php">LOGIN</a>
+            </li>
+            <li>
+            <a href="signup.php">SIGNUP</a>
+            </li>
                     </ul>
                 </section>
             </div>
@@ -92,38 +131,40 @@
 
     <main>
 
+
   
 
         <div class="signup_container">
-            <form>
+           
+                <form action="signup.php" method="post">
               <ul class="flex_outer">
                 <li>
-                  <label for="first-name">First Name</label>
-                  <input type="text" id="first-name" placeholder="Enter your first name">
+                  <label for="firstname">First Name</label>
+                  <input type="text"  name="firstname" placeholder="Enter your first name" required>
                 </li>
                 <li>
-                  <label for="last-name">Last Name</label>
-                  <input type="text" id="last-name" placeholder="Enter your last">
+                  <label for="lastname">Last Name</label>
+                  <input type="text" name="lastname" placeholder="Enter your last" required>
                 </li>
                 <li>
                   <label for="email">Email</label>
-                  <input type="email" id="email" placeholder="Enter your email ">
+                  <input type="email" id="email" name="email" placeholder="Enter your email " required>
                 </li>
                 <li>
                   <label for="phone">Phone</label>
-                  <input type="tel" id="phone" placeholder="Enter your phone ">
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone " required>
                 </li>
                 <li>
                     <label for="pass">password</label>
-                    <input type="password" id="pass" placeholder="Enter your phone ">
+                    <input type="password" id="pass" name="pass" placeholder="Enter your password " required>
                   </li>
                   <li>
                     <label for="re-pass">re-password</label>
-                    <input type="password" id="re-pass" placeholder="renter your password ">
+                    <input type="password" id="re-pass" name="repass" placeholder="renter your password " required>
                   </li>
                   <li>
                     <label for="address">address</label>
-                    <input type="text" id="address" placeholder="renter your address ">
+                    <input type="text" id="address" name="address" placeholder="enter your address " required>
                   </li>
               <!--  <li>
                   <p>Age</p>
@@ -150,10 +191,20 @@
                   </li>
 
                 <li>
-                  <button type="submit">SIGNUP</button>
+                  <button name="signup" type="submit">SIGNUP</button>
                 </li>
+                <li>
+                <?php if(isset($message)) { ?>
+            <div style="border:1px solid red;padding:3px;"> 
+                <?=$message?>
+            </div>  <?php } ?>    
+            </li>
               </ul>
             </form>
+
+
+
+
           </div>
 
 
@@ -189,7 +240,7 @@
             <section>
                 <ul>
                     <li>
-                        <a href="create.html">Create</a>
+                        <a href="create.php">Create</a>
                     </li>
                     <li>
                         <a href="#">get started</a>
@@ -209,7 +260,7 @@
             <section>
                 <ul>
                     <li>
-                        <a href="explore.html">Explore</a>
+                        <a href="explore.php">Explore</a>
                     </li>
                     <li>
                         <a href="#">Catigories</a>

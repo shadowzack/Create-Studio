@@ -11,86 +11,129 @@
 </head>
 
 <body>
-    <header>
-        <nav class="top_nav">
-            <div class="nav_wrapper">
+<header>
+<nav class="top_nav">
+    <div class="nav_wrapper">
 
-                <section class="create_logo">
-                    <a href="index.html">
+        <section class="create_logo">
+            <a href="index.php">
 
-                        <img src="images/logo_png.png" alt="" >
-                    </a>
-
-
-
-                </section>
-                <ul class="main_menu">
-                    <li>
-                        <a href="create.html">Create</a>
-                    </li>
-                    <li>
-                        <a href="explore.html">Explore</a>
-                    </li>
-                    <li>
-                        <a href="#">Features</a>
-                    </li>
-                    <li>
-                        <a href="#">Connect</a>
-                    </li>
-                    <li>
-                        <a href="mymovies.html">My Movies</a>
-                    </li>
-
-                </ul>
-                <section class="user">
-                    <section class="user_profile">
-                        <a href="#">LOGIN</a>
-                         <a href="signup.html">SIGNUP</a>
-
-                      </section>
-
-                </section>
+              
+            </a>
 
 
-                <section id="hamburger">
-           
-                    <input type="checkbox" />
 
-       
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        </section>
+        <ul class="main_menu">
+            <li>
+                <a href="create.php">Create</a>
+            </li>
+            <li>
+                <a href="explore.php">Explore</a>
+            </li>
+            <li>
+                <a href="#">Features</a>
+            </li>
+            <li>
+                <a href="#">Connect</a>
+            </li>
+            <li>
+                <a href="mymovies.php">My Movies</a>
+            </li>
 
+        </ul>
+        <section class="user">
+            <section class="user_profile">
+            <?php 
+            session_start();
+            if(isset($_POST['logout']))
+            {
+                if (session_status() == PHP_SESSION_ACTIVE){
+                    unset($_SESSION["user"]);
+                    unset($_SESSION["user_id"]);
+                    session_destroy();
+                    }
+            }
+            if (!isset($_SESSION["user"])) {?>
+              
+            <a href="login.php">LOGIN</a>
+            <a href="signup.php">SIGNUP</a>
+            <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
+                <div>hi <?=$_SESSION["user"]?></div> 
+                <form action="<?=$current?>" method="post">
+                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                </form>
                
-                    <ul id="hamburger_menu">
-                        <li>
-                            <a href="index.html">
+            <?php }?>
+            </section>
 
-                                <img src="images/logo_png.png" alt="" >
-                            </a>
-                        </li>
-                        <li>
-                            <a href="create.html">Create</a>
-                        </li>
-                        <li>
-                            <a href="explore.html">Explore</a>
-                        </li>
-                        <li>
-                            <a href="#">Features</a>
-                        </li>
-                        <li>
-                            <a href="#">Connect</a>
-                        </li>
-                        <li>
-                            <a href="mymovies.html">My Movies</a>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </nav>
+        </section>
 
-    </header>
 
+        <section id="hamburger">
+     
+            <input type="checkbox" />
+
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+     
+            <ul id="hamburger_menu">
+                <li>
+                    <a href="index.php">
+
+                     
+                    </a>
+                </li>
+                <li>
+                    <a href="create.php">Create</a>
+                </li>
+                <li>
+                    <a href="explore.php">Explore</a>
+                </li>
+                <li>
+                    <a href="#">Features</a>
+                </li>
+                <li>
+                    <a href="#">Connect</a>
+                </li>
+                <li>
+                    <a href="mymovies.php">My Movies</a>
+                </li>
+                <li>
+                <?php 
+           
+            if(isset($_POST['logout']))
+            {
+                if (session_status() == PHP_SESSION_ACTIVE){
+                unset($_SESSION["user"]);
+                unset($_SESSION["user_id"]);
+                session_destroy();
+                }
+            }
+            if (!isset($_SESSION["user"])) {?>
+              
+            <a href="login.php">LOGIN</a>
+            </li>
+            <li>
+            <a href="signup.php">SIGNUP</a>
+            </li>
+            <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
+               <li> <div> hi <?=$_SESSION["user"]?> </div></li>
+              <li>  <form action="<?=$current?>" method="post">
+                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                </form>
+               </li>
+            <?php }?>
+            
+            </ul>
+        </section>
+    </div>
+</nav>
+
+</header>
     <main>
 
         <section class="wrapper">
@@ -187,7 +230,7 @@
             <section>
                 <ul>
                     <li>
-                        <a href="create.html">Create</a>
+                        <a href="create.php">Create</a>
                     </li>
                     <li>
                         <a href="#">get started</a>
@@ -207,7 +250,7 @@
             <section>
                 <ul>
                     <li>
-                        <a href="explore.html">Explore</a>
+                        <a href="explore.php">Explore</a>
                     </li>
                     <li>
                         <a href="#">Catigories</a>

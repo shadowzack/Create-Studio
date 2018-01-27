@@ -154,7 +154,8 @@ function mark() {
   var links = links_container[0].getElementsByTagName('a');
   for (let index = 0; index < links.length; index++) {
 
-    if ((sub_name(links[index].href) == sub_name(currentPage)) && sub_name(currentPage) != "index.html") {
+    if ((sub_name(links[index].href) == sub_name(currentPage)) && sub_name(currentPage) != "signup.php" 
+     && sub_name(currentPage) != "index.php"  && sub_name(currentPage) != "#"  && sub_name(currentPage) != "login.php") {
       links[index].style.color = "whitesmoke";
       links[index].style.background = "#383736";
       links[index].parentElement.style.background = "#383736";

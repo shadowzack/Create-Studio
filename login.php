@@ -1,3 +1,25 @@
+<?php
+   include ('config.php');
+   session_start();
+   if(isset($_POST['login']))
+   {
+    $email=$_POST['email'];
+    $pass=$_POST['pass'];
+
+    $sql="SELECT * FROM user_tb_users_254 WHERE email='$email' AND pass='$pass'";
+     $result=mysqli_query($conn,$sql);
+     if($result){
+         $row=mysqli_fetch_assoc($result);
+        $_SESSION["user"]=$row['firstname'];
+        header('Location: mymovies.php');
+     }
+     else {
+        $message="wrong email or password";
+     }
+   
+   }
+    
+   ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +28,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="include/style.css">
-    <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Tangerine">
  <title>Create Studio</title>
  
 </head>
@@ -18,9 +38,9 @@
             <div class="nav_wrapper">
 
                 <section class="create_logo">
-                    <a href="index.html">
+                    <a href="index.php">
 
-                        <img src="images/logo_png.png" alt="" >
+                        
                     </a>
 
 
@@ -28,10 +48,10 @@
                 </section>
                 <ul class="main_menu">
                     <li>
-                        <a href="create.html">Create</a>
+                        <a href="create.php">Create</a>
                     </li>
                     <li>
-                        <a href="explore.html">Explore</a>
+                        <a href="explore.php">Explore</a>
                     </li>
                     <li>
                         <a href="#">Features</a>
@@ -40,37 +60,41 @@
                         <a href="#">Connect</a>
                     </li>
                     <li>
-                        <a href="mymovies.html">My Movies</a>
+                        <a href="mymovies.php">My Movies</a>
                     </li>
 
                 </ul>
                 <section class="user">
                     <section class="user_profile">
-                        <a href="#">LOGIN</a>
-                        <a href="signup.html">SIGNUP</a>
+                    <a href="login.php">LOGIN</a>
+                    <a href="signup.php">SIGNUP</a>
                       </section>
 
                 </section>
 
 
                 <section id="hamburger">
+         
                     <input type="checkbox" />
 
+          
                     <span></span>
                     <span></span>
                     <span></span>
+
+            
                     <ul id="hamburger_menu">
                         <li>
-                            <a href="index.html">
+                            <a href="index.php">
 
-                                <img src="images/logo_png.png" alt="" >
+                               
                             </a>
                         </li>
                         <li>
-                            <a href="create.html">Create</a>
+                            <a href="create.php">Create</a>
                         </li>
                         <li>
-                            <a href="explore.html">Explore</a>
+                            <a href="explore.php">Explore</a>
                         </li>
                         <li>
                             <a href="#">Features</a>
@@ -79,8 +103,14 @@
                             <a href="#">Connect</a>
                         </li>
                         <li>
-                            <a href="mymovies.html">My Movies</a>
+                            <a href="mymovies.php">My Movies</a>
                         </li>
+                        <li>
+                        <a href="login.php">LOGIN</a>
+            </li>
+            <li>
+            <a href="signup.php">SIGNUP</a>
+            </li>
                     </ul>
                 </section>
             </div>
@@ -90,7 +120,40 @@
 
     <main>
 
-  <p style="font-family: 'Tangerine', serif;font-size: 48px;"> google fonts example yay!!!!!</p>
+
+  
+
+        <div class="signup_container">
+           
+                <form action="login.php" method="post">
+              <ul class="flex_outer">
+                <li>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email " required>
+                </li>
+             
+                <li>
+                    <label for="pass">password</label>
+                    <input type="password" id="pass" name="pass" placeholder="Enter your password " required>
+                  </li>
+             
+                <li>
+                  <button name="login" type="submit">login</button>
+                </li>
+                <li>
+                <?php if(isset($message)) { ?>
+            <div style="border:1px solid red;padding:3px;"> 
+                <?=$message?>
+            </div>  <?php } ?>    
+            </li>
+              </ul>
+            </form>
+
+
+
+
+          </div>
+
 
 
     </main>
@@ -124,7 +187,7 @@
             <section>
                 <ul>
                     <li>
-                        <a href="create.html">Create</a>
+                        <a href="create.php">Create</a>
                     </li>
                     <li>
                         <a href="#">get started</a>
@@ -144,7 +207,7 @@
             <section>
                 <ul>
                     <li>
-                        <a href="explore.html">Explore</a>
+                        <a href="explore.php">Explore</a>
                     </li>
                     <li>
                         <a href="#">Catigories</a>

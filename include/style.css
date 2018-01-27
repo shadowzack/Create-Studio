@@ -35,6 +35,15 @@ a {
 .create_logo {
     width: 130px;
     padding-right: 46px;
+
+}
+.create_logo a{
+    display: block;
+    background: url("../images/logo_png.png");
+    background-repeat: no-repeat;
+    height: 66px;
+    width: 176px;
+   
 }
 
 .main_menu li a {
@@ -150,6 +159,13 @@ a {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
+#hamburger_menu li:first-child a {
+    display: block;
+    background: url("../images/logo_png.png");
+    background-repeat: no-repeat;
+    height: 66px;
+    width: 176px;
+}
 #hamburger_menu li:not(:first-child) a {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgba(49, 49, 49, 0.753);
@@ -167,7 +183,47 @@ a {
     border-bottom: 1px solid rgba(156, 156, 156, 0.425);
     overflow: auto;
 }
+#hamburger_menu li div{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(49, 49, 49, 0.753);
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+    display: inline-block;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    padding-left: 25px;
+    border-bottom: 1px solid rgba(156, 156, 156, 0.425);
+    overflow: auto;
+}
+#hamburger_menu li form button{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(49, 49, 49, 0.753);
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+    
+    text-transform: uppercase;
+    display: block;
+   
+    margin: 10px 5px;
+    padding: 5px;
+    margin-left: 25px;
+    background: white;
+    overflow: auto;
+    border: 1px solid rgba(131, 131, 131, 0.315);
+    transition: background 0.3s;
+}
+#hamburger_menu li form button:hover{
+    background: #232323;
+    color: whitesmoke;
 
+}
 #hamburger_menu li:not(:first-child):hover a {
     color: whitesmoke;
     text-transform: uppercase;
@@ -207,6 +263,12 @@ a {
     .user .user_profile a{
         display: none;
        
+    }
+    .user .user_profile form button{
+        display: none;
+    }
+    .user .user_profile div{
+        display: none;
     }
     #hamburger_menu {
         display: block;
@@ -311,12 +373,63 @@ a {
   transition: background 0.3s;
 
 }
+.user_profile form button {
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    -webkit-appearance: none;
+    font-size: 0.9rem;
+    text-shadow: none;
+    line-height: 1.2;
+    display: inline-block;
+    outline: 0;
+    padding: 10px 30px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    border-radius: 3px;
+    border: 2px solid black;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+ 
+    margin-left: 1px;
+    
+ background: white;
+ transition: background 0.3s;
+}
+.user_profile  div {
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    -webkit-appearance: none;
+    font-size: 0.9rem;
+    text-shadow: none;
+    line-height: 1.2;
+    display: inline-block;
+    outline: 0;
+    padding: 10px 50px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 0, 0, 0.199);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+   
+    margin-left: 1px;
+
+
+}
 .user_profile a:hover{
     color: whitesmoke;
     background: rgb(56, 55, 54);
     border-color: rgb(56, 55, 54);
 }
-
+.user_profile form button:hover{
+    color: whitesmoke;
+    background: rgb(56, 55, 54);
+    border-color: rgb(56, 55, 54);
+}
 /*-------------------------------main content-------------------------------------------------*/
 
 
