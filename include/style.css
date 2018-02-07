@@ -677,6 +677,12 @@ align-items: center;
     opacity: 0.5;
 }
 /*create*/
+.flex_upload{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left:0%;
+}
 
   .create_imgData{
       display: flex;
@@ -964,7 +970,66 @@ background: #fff;
 
 
 /*create*/
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+}
 
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+
+
+
+.fileContainer {
+    background: rgba(255, 255, 255, 0);
+    border-radius: .5em;
+    float: left;
+    padding: .5em;
+    text-align: center;
+    border: 2px solid rgb(75, 75, 75);
+}
+
+.fileContainer [type=file] {
+    cursor: pointer;
+}
+
+
+
+.upload_feild{
+    border: 2px double rgb(231, 231, 231);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 230px;
+    
+    padding-left: 30px;
+    padding-right: 30px;
+  
+   
+}
+.upload_feild h1{
+    text-align: center;
+    font-family: arial black;
+
+}
+.upload_feild input{
+    margin:0 auto;
+}
+#upload_img{
+    display: none;
+    margin-left: 4vw;
+}
 
 .create_wrapper {
     margin: 0 auto;
@@ -997,6 +1062,7 @@ background: #fff;
 }
 
 .create_container div {
+   
     background: rebeccapurple;
     width: 160px;
     height: 160px;
@@ -1008,8 +1074,15 @@ background: #fff;
 .create_container div img {
     width: 100%;
     height: 100%;
+    display: block;
    
+    
    
+}
+.create_container_altr{
+    outline: 8px solid rgb(255, 255, 255);
+    outline-offset: -12px;
+    
 }
 .create_container div div {
 
@@ -1338,4 +1411,61 @@ font-weight: 900;
 #back-to-top:hover {
     background: #000000c2;
     color: whitesmoke;
+}
+
+
+/*------------------------------------------------------mymovies------------------------------------------------*/
+
+.mymovieslog{
+    margin:2.8vw auto;
+    width: 30%;
+    height: 20%;
+    background: #f3f3f352;
+    padding: 2vw;
+    font-weight: 600;
+    font-size: 1.8vw;
+    border-radius:3px 0 0 3px;
+    text-align: center;
+    border: 3px dotted rgba(146, 146, 146, 0.041);
+    color: #5a5a5a;
+}
+.mymovieslog a{
+    text-decoration:underline;
+}    
+
+
+
+#data_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#data_container li {
+
+    width:24%;
+    height: 15vw;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#data_container li div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background-color: rgb(0, 0, 0);
+  }
+  #data_container li div img{
+      width: 100%;
+      height: 100%;
+
+  }
+  #data_container li:hover div img {
+    opacity: 0.5;
 }

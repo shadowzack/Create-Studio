@@ -1,3 +1,9 @@
+<?php
+
+@ob_start();
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="include/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="js/script.js"></script>
  <title>Create Studio</title>
  
 </head>
@@ -45,10 +53,10 @@
         <section class="user">
             <section class="user_profile">
             <?php 
-            session_start();
+           
             if(isset($_POST['logout']))
             {
-                if (session_status() == PHP_SESSION_ACTIVE){
+                if(isset($_SESSION["user"])){
                     unset($_SESSION["user"]);
                     unset($_SESSION["user_id"]);
                     session_destroy();
@@ -107,11 +115,11 @@
            
             if(isset($_POST['logout']))
             {
-                if (session_status() == PHP_SESSION_ACTIVE){
-                unset($_SESSION["user"]);
-                unset($_SESSION["user_id"]);
-                session_destroy();
-                }
+                if(isset($_SESSION["user"])){
+                    unset($_SESSION["user"]);
+                    unset($_SESSION["user_id"]);
+                    session_destroy();
+                    }
             }
             if (!isset($_SESSION["user"])) {?>
               
@@ -141,24 +149,46 @@
     <div class="container create_imgData" >
       <h1>First Step</h1>
       <h2>Upload photos and short videos</h2>
-      <button>UPLOAD</button>
+      
     </div>
   </section>
 <section class="clear content">
   <div class="container ">
       
-   <section class="steps_wrapper">
-       <div>   <img src="images/upload_icon.png" alt=""></div>
-       <div><img src="images/theme_icon.png" alt=""> </div>
-       <div>   <img src="images/soundtrack_icon.png" alt=""></div>
-    
-       
+   
+<script>
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#upload_img')
+                        .attr('src', e.target.result)
+                        .height(230);
+                };
+                $('#upload_img').css("display","block");
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+<section class="steps_wrapper " style="justify-content: flex-start;padding: 20px;">
+
+     <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data"> 
+     <section class="flex_upload">
+ <section class="upload_feild">
+     <h1>UPLOAD PHOTOS</h1>
+     <label class="fileContainer">
+         Upload....
+     <input name="files" type="file" onchange="readURL(this);" multiple>
+     </label>
+     </section>
+
+   <img id="upload_img" src="#" alt="your image" />
     
    </section>
-   <h2>
- UPLOAD.THEME.SOUND <br>
- Create Movies by Following these three Smiple Steps </h2>
-   </div>
+   </section>
 </section>
 
 <section class="clear parallax parallax-2">
@@ -175,14 +205,15 @@
         <div class="create_wrapper">
                 <h1>Choose Theme or Filter</h1>
                 <section class="create_data_wrapper">
-                       
+                       <form action="">
                         <button id="lft_btn1" name="lftbtn">
                            &lt;
                           </button>
                         
-        
+                          </form>
             
                         <div class="create_container" id="create_content"> 
+                            
                             <div><img src="images/food.jpg" alt=""></div> 
                             <div><img src="images/food.jpg" alt=""></div>
                             <div><img src="images/food.jpg" alt=""></div>
@@ -260,8 +291,17 @@
     <div class="container create_imgData" >
       <h1>Last Step</h1>
       <h2>Enter Your Movie Tilte</h2>
-      <input type="text" placeholder="Enter Your Movie Tiltle">
-      <button>Make My Movie</button>
+
+
+
+
+     
+      <input type="text" name="title" placeholder="Enter Your Movie Tiltle">
+      
+      <input type="submit" value="Make My Movie">
+
+      
+      </form>
     </div>
   </section>
 
@@ -365,6 +405,32 @@
         </section>
     </footer>
 
+<script>
+/*
+$(document).ready(function(){  
+      $('#uploadForm').on('submit', function(e){  
+           $.ajax({  
+                url: "upload.php",  
+                type: "POST",  
+                data: new FormData(this),  
+                contentType: false,  
+                processData:false  
+               /* success: function(data)  
+                {  
+
+                     
+                     alert("Image Uploaded");  
+                } */ 
+          /* });  
+      });  
+ });  */
+ (function () {
+    
+         var theme= new theme_run();
+    
+         
+        })();
+</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
 </body>

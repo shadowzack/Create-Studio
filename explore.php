@@ -1,3 +1,14 @@
+<?php
+include ('config.php');
+@ob_start();
+session_start();
+if (isset($_POST['id'])) {
+    # code...ehc
+
+    echo "lksdflksdjfklsdkfjsdklfsdk";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,10 +56,10 @@
         <section class="user">
             <section class="user_profile">
             <?php 
-            session_start();
+            
             if(isset($_POST['logout']))
             {
-                if (session_status() == PHP_SESSION_ACTIVE){
+                if(isset($_SESSION["user"])){
                     unset($_SESSION["user"]);
                     unset($_SESSION["user_id"]);
                     session_destroy();
@@ -107,11 +118,11 @@
            
             if(isset($_POST['logout']))
             {
-                if (session_status() == PHP_SESSION_ACTIVE){
-                unset($_SESSION["user"]);
-                unset($_SESSION["user_id"]);
-                session_destroy();
-                }
+                if(isset($_SESSION["user"])){
+                    unset($_SESSION["user"]);
+                    unset($_SESSION["user_id"]);
+                    session_destroy();
+                    }
             }
             if (!isset($_SESSION["user"])) {?>
               
@@ -151,7 +162,8 @@
                 
 
     
-                <div class="cat_container" id="content">  
+                <div class="cat_container" id="content"> 
+                   
                 </div>
                 
                 <button id="rit_btn">
@@ -160,26 +172,32 @@
             </section>
 
             <div id="myModal" class="modal" >
-               
-            
-
                 <span class="close cursor" onclick="closeModal()">&times;</span>
                 <div class="modal_content">
                         
 
                    <section class="img_holder" >
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <a class="prev" onclick="">&#10094;</a>
+                        <a class="next" onclick="">&#10095;</a>
                     <img src="images/logo_png.png" id="current_modal_img" alt="">
                    </section>
-                   <section class="content_holder">
-                    <section></section>
-                    <section></section>
+                   <section class="content_holder" id="user_content">
                     <section>
-                        
-
-
-
+                    <!--profile -->
+                  
+                <?php
+                if( isset($_POST['id'])){
+                    echo $_POST['id'];
+                    
+                   }
+                ?>    
+                
+                </section>
+                    <section>
+                    <!--comments -->
+                    </section>
+                    <section>
+                    <!--tiltle likes -->
                     </section>
                     <section>
                         <input type="text" placeholder="Add a comment ....">
@@ -192,7 +210,23 @@
             <section id="explore_data">
                 <h1>Explore</h1>
                 <ul id="data_container">
-               
+                <?php
+                    $sql="SELECT * FROM(SELECT user_tb_movie_254.title,user_tb_movie_254.id AS ID
+                    FROM  user_tb_movie_254
+                    INNER JOIN user_tb_user_movie_254
+                    ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id )AS T
+                    INNER JOIN user_tb_movie_img_254
+                    ON user_tb_movie_img_254.movie_id=T.ID";
+                    
+                    $res=mysqli_query($conn,$sql);
+                    if($res)
+                    {
+                    while($row=mysqli_fetch_assoc($res)){
+                        echo "<li id=".$row['id']."><div><img src=".$row['img_path']."</div></li>";
+                      }
+                    }
+                      ?>
+                    
                     
                     
                 </ul>
@@ -304,8 +338,10 @@
     <script src="js/script.js"></script>
     <script>
         (function () {
-            var explore = new exploreFeed();
-            var cat= new loadCat();
+         //   var explore = new exploreFeed();
+         var cat= new loadCat();
+         var explore=new exploreFeed_run();
+         
         })();
     </script>
 </body>

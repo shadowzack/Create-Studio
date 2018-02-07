@@ -1,3 +1,10 @@
+<?php
+ include ('config.php');
+@ob_start();
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,14 +54,16 @@
         <section class="user">
             <section class="user_profile">
             <?php 
-            session_start();
+          
             if(isset($_POST['logout']))
             {
-                if (session_status() == PHP_SESSION_ACTIVE){
+                //if (session_status() == PHP_SESSION_ACTIVE){
+                    if(isset($_SESSION["user"])){
                     unset($_SESSION["user"]);
                     unset($_SESSION["user_id"]);
                     session_destroy();
                     }
+                //}
             }
             if (!isset($_SESSION["user"])) {?>
               
@@ -109,11 +118,11 @@
            
             if(isset($_POST['logout']))
             {
-                if (session_status() == PHP_SESSION_ACTIVE){
-                unset($_SESSION["user"]);
-                unset($_SESSION["user_id"]);
-                session_destroy();
-                }
+                if(isset($_SESSION["user"])){
+                    unset($_SESSION["user"]);
+                    unset($_SESSION["user_id"]);
+                    session_destroy();
+                    }
             }
             if (!isset($_SESSION["user"])) {?>
               
@@ -139,7 +148,83 @@
 
     <main>
 
-  <p style="font-family: 'Tangerine', serif;font-size: 48px;"> google fonts example yay!!!!!</p>
+<?php
+ if (!isset($_SESSION["user"])) {
+    ?>
+    <section class="mymovieslog"> You Must Login First <a href="login.php">Here</a></section>
+    <?php 
+}
+else{
+
+
+   /* $sql="SELECT *
+    FROM user_tb_user_movie_254
+    INNER JOIN works
+    ON has.id=works.engineer_id
+    WHERE project_id IN(SELECT user_tb_movie_254.id AS mid,
+    user_tb_movie_254.title AS tilte,user_tb_movie_img_254.img_path AS img_path
+    FROM user_tb_movie_254
+    INNER JOIN user_tb_movie_img_254
+    WHERE user_tb_movie_254.id=user_tb_movie_img_254.movie_id)AS T
+";*/
+$uu=$_SESSION["user_id"];
+/*
+$sql="SELECT user_tb_movie_254.title
+FROM  user_tb_movie_254
+INNER JOIN user_tb_user_movie_254
+ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id
+WHERE user_tb_user_movie_254.user_id='$uu' ";
+*/
+
+$sql="SELECT * FROM(SELECT user_tb_movie_254.title,user_tb_movie_254.id AS ID
+FROM  user_tb_movie_254
+INNER JOIN user_tb_user_movie_254
+ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id
+WHERE user_tb_user_movie_254.user_id='$uu' )AS T
+INNER JOIN user_tb_movie_img_254
+ON user_tb_movie_img_254.movie_id=T.ID";
+
+
+
+       $res=mysqli_query($conn,$sql);
+       $r=mysqli_num_rows($res);
+       if($res&&$r>0)
+       {
+           ?>
+             <section class="wrapper">
+           <section id="explore_data">
+                    <h1>All Movies</h1>
+                <ul id="data_container">
+
+    
+    
+
+           <?php
+      
+      // echo "count ".mysqli_num_rows($res);
+      while($row=mysqli_fetch_assoc($res)){
+        echo "<li id=".$row['id']."><div><img src=".$row['img_path']."</div></li>";
+      }
+
+      ?>
+      </ul>
+        </section>
+        </section>
+      <?php
+}
+else
+{
+    ?>
+     <section class="mymovieslog"> Create Your First Movie <a href="create.php">Here</a></section>
+   
+    <?php
+}
+}             
+    
+?>
+
+
+  <!--     GOOGLE FONTS  <p style="font-family: 'Tangerine', serif;font-size: 48px;"> google fonts example yay!!!!!</p>-->
 
 
     </main>

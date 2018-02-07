@@ -49,12 +49,65 @@ function feedElement(current) {
 
 function exploreFeed() {
   var obj;
-  for (let index = 0; index < 20; index++) {
+  for (let index = 0; index < 2; index++) {
     obj = new feedElement(index);
 
   }
 
 }
+
+function theme_run() {
+  var content=document.getElementById('create_content').childNodes;
+    
+  var flag=0;
+  var lastvar;
+  var select_func= function() {
+      if(flag)
+    lastvar.firstChild.className="";
+    flag++;
+      lastvar=this;
+    //this.style.borderBottom="5px solid black";
+    this.firstChild.className="create_container_altr";
+    //////////////////////  HIDDEN INPUT DONT THINK EDIOT ///////////////
+  }
+  for (let index = 0; index < content.length; index++) {
+  
+      content[index].addEventListener('click',select_func);
+      
+    console.log(index);
+    
+  }
+
+ 
+}
+function exploreFeed_run()
+{
+  var openModal = function () {
+
+   
+    var content=document.getElementById('user_content').childNodes;
+    var id = this.id;
+    
+    
+      
+   
+      document.getElementById('myModal').style.display = "block";
+      var tmp = this.firstChild.firstChild;
+      document.getElementById('current_modal_img').src = tmp.src;
+   
+
+  }
+  
+  var tmp = document.getElementById('data_container').childNodes;
+  var length=tmp.length;
+ for (let index = 0; index < length; index++) {
+   tmp[index].addEventListener('click',openModal);
+   
+ }
+ 
+
+}
+
 
 function closeModal() {
   document.getElementById('myModal').style.display = "none";

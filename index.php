@@ -1,6 +1,9 @@
 <?php
 include ('config.php');
 
+@ob_start();
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -50,10 +53,9 @@ include ('config.php');
                 <section class="user">
                     <section class="user_profile">
                     <?php 
-                    session_start();
                     if(isset($_POST['logout']))
                     {
-                        if (session_status() == PHP_SESSION_ACTIVE){
+                        if(isset($_SESSION["user"])){
                             unset($_SESSION["user"]);
                             unset($_SESSION["user_id"]);
                             session_destroy();
@@ -112,11 +114,11 @@ include ('config.php');
                    
                     if(isset($_POST['logout']))
                     {
-                        if (session_status() == PHP_SESSION_ACTIVE){
-                        unset($_SESSION["user"]);
-                        unset($_SESSION["user_id"]);
-                        session_destroy();
-                        }
+                        if(isset($_SESSION["user"])){
+                            unset($_SESSION["user"]);
+                            unset($_SESSION["user_id"]);
+                            session_destroy();
+                            }
                     }
                     if (!isset($_SESSION["user"])) {?>
                       

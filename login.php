@@ -8,9 +8,11 @@
 
     $sql="SELECT * FROM user_tb_users_254 WHERE email='$email' AND pass='$pass'";
      $result=mysqli_query($conn,$sql);
-     if($result){
-         $row=mysqli_fetch_assoc($result);
+     $row=mysqli_fetch_assoc($result);
+     if(isset($row)){
+        
         $_SESSION["user"]=$row['firstname'];
+        $_SESSION["user_id"]=$row['email'];
         header('Location: mymovies.php');
      }
      else {

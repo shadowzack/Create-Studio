@@ -17,12 +17,14 @@
     VALUES ('$firstname','$lastname','$address','$email','$phone','$gender','$pass')";
      $result=mysqli_query($conn,$sql);
      if($result){
+        $last_id = mysqli_insert_id($conn);
          $sql="SELECT * FROM user_tb_users_254 WHERE email='$email' ";
          $result=mysqli_query($conn,$sql);
          $row=mysqli_fetch_assoc($result);
         $_SESSION["user"]=$row['firstname'];
-        $_SESSION["user_id"]=$row['email'];
-        header('Location: mymovies.php');
+        $_SESSION["user_id"]=$row['id'];
+        mkdir("images/$last_id",0777);
+        header("Location: mymovies.php");
      }
      else {
         $message="email already exists";
