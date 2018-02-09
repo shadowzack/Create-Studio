@@ -1,0 +1,37 @@
+{
+    "categories":[
+
+        {
+            "categoryName":"adventure",
+            "catId":"1"
+        },
+        {
+            "categoryName":"animal",
+            "catId":"2"
+        },
+        {
+            "categoryName":"education",
+            "catId":"3"
+        },
+        {
+            "categoryName":"food",
+            "catId":"4"
+        },
+        {
+            "categoryName":"music",
+            "catId":"5"
+        },
+        {
+            "categoryName":"sport",
+            "catId":"6"
+        },
+        {
+            "categoryName":"tech",
+            "catId":"7"
+        },
+        {
+            "categoryName":"travel",
+            "catId":"8"
+        }
+    ]
+}

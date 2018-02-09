@@ -15,6 +15,8 @@ session_start();
     <link rel="stylesheet" type="text/css" href="include/style.css">
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Tangerine">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
  <title>Create Studio</title>
  
 </head>
@@ -151,7 +153,7 @@ session_start();
 <?php
  if (!isset($_SESSION["user"])) {
     ?>
-    <section class="mymovieslog"> You Must Login First <a href="login.php">Here</a></section>
+    <section class="mymovieslog"> <span>You Must Login First </span><a href="login.php">Here</a></section>
     <?php 
 }
 else{
@@ -327,8 +329,7 @@ else
         </section>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+ 
 </body>
 
 </html>

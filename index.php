@@ -15,6 +15,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="include/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+  
     <title>Create Studio</title>
 </head>
 
@@ -274,8 +276,7 @@ session_start();
         </section>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    
 <script>
   /*  var ios = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
     if (ios) {

@@ -15,8 +15,11 @@ if(is_array($_FILES))
     
 
   $title=$_POST['title'];
+  $theme=$_POST['theme'];
+  $soundtrack=$_POST['sound'];
+  $cat=$_POST['cat'];
       $sql="INSERT INTO user_tb_movie_254 (title, category, theme,sound)
-      VALUES ('$title','hh','hh','hh')";
+      VALUES ('$title','$cat','$theme','$soundtrack')";
        $result=mysqli_query($conn,$sql);
        if($result){
           $last_id = mysqli_insert_id($conn);

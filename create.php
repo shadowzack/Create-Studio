@@ -205,30 +205,29 @@ session_start();
         <div class="create_wrapper">
                 <h1>Choose Theme or Filter</h1>
                 <section class="create_data_wrapper">
-                       <form action="">
+                     
                         <button id="lft_btn1" name="lftbtn">
                            &lt;
                           </button>
                         
-                          </form>
+                          
             
                         <div class="create_container" id="create_content"> 
+                         <div><img src="images/no.jpg" id="theme_0" alt=""></div> 
+                            <div><img src="images/bwfr.jpg" id="theme_1" alt=""></div> 
+                            <div><img src="images/dfr.jpg" id="theme_2"  alt=""></div>
+                            <div><img src="images/mbfr.jpg" id="theme_3" alt=""></div>
+                            <div><img src="images/bfr.jpg" id="theme_4" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_5" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_6" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_7" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_8" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_9" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_10" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_11" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_12" alt=""></div>
+                            <div><img src="images/food.jpg" id="theme_13" alt=""></div>
                             
-                            <div><img src="images/food.jpg" alt=""></div> 
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
                         </div>
                         
                         <button id="rit_btn1" name="ritbtn">
@@ -260,22 +259,21 @@ session_start();
                         
         
             
-                        <div class="create_container" > 
-                            <div><img src="images/food.jpg" alt=""></div> 
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
-                            <div><img src="images/food.jpg" alt=""></div>
+                        <div class="create_container" id="sound_track"> 
+                        <div><img src="images/no.jpg" id="sound_0" alt=""></div> 
+                            <div><img src="images/food.jpg" id="sound_1" alt=""></div> 
+                            <div><img src="images/food.jpg" id="sound_2"  alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_3" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_4" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_5" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_6" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_7" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_8" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_9" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_10" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_11" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_12" alt=""></div>
+                            <div><img src="images/food.jpg" id="sound_13" alt=""></div>
                         </div>
                         
                         <button id="rit_btn2" name="ritbtn">
@@ -293,15 +291,20 @@ session_start();
       <h2>Enter Your Movie Tilte</h2>
 
 
-
-
-     
+        <!--this two hidden inputs is for sending chosen theme and soundtrack-->
+        <input type="hidden" name="theme" id="theme_input" value="">
+        <input type="hidden" name="sound" id="sound_input" value="">
+        <select name="cat" id="category_input" >
+            
+        </select>
+        
       <input type="text" name="title" placeholder="Enter Your Movie Tiltle">
       
-      <input type="submit" value="Make My Movie">
-
-      
+      <input type="submit" value="Make My Movie" id="make_btnn">
       </form>
+
+
+
     </div>
   </section>
 
@@ -404,7 +407,7 @@ session_start();
             </div>
         </section>
     </footer>
-
+   
 <script>
 /*
 $(document).ready(function(){  
@@ -424,15 +427,16 @@ $(document).ready(function(){
           /* });  
       });  
  });  */
+ 
  (function () {
     
          var theme= new theme_run();
-    
-         
+        var soundtrack=new soundtrack_run();
+         var select=new selectLoad();
         })();
 </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+   
+   
 </body>
 
 </html>
