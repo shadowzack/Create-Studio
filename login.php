@@ -12,7 +12,7 @@
      if(isset($row)){
         
         $_SESSION["user"]=$row['firstname'];
-        $_SESSION["user_id"]=$row['email'];
+        $_SESSION["user_id"]=$row['id'];
         header('Location: mymovies.php');
      }
      else {

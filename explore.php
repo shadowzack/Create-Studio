@@ -17,9 +17,9 @@ if (isset($_POST['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="include/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    
-    <script src="js/script.js"></script>
+   
+   
  <title>Create Studio</title>
  
 </head>
@@ -75,7 +75,7 @@ if (isset($_POST['id'])) {
             <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                 <div>hi <?=$_SESSION["user"]?></div> 
                 <form action="<?=$current?>" method="post">
-                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                <button  name="logout" type="submit">logout</button>
                 </form>
                
             <?php }?>
@@ -137,7 +137,7 @@ if (isset($_POST['id'])) {
             <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                <li> <div> hi <?=$_SESSION["user"]?> </div></li>
               <li>  <form action="<?=$current?>" method="post">
-                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                <button  name="logout" type="submit">logout</button>
                 </form>
                </li>
             <?php }?>
@@ -212,22 +212,53 @@ if (isset($_POST['id'])) {
 
             <section id="explore_data">
                 <h1>Explore</h1>
-                <ul id="data_container">
+                
+                <ul id="data_container" >
                 <?php
                     $sql="SELECT * FROM(SELECT user_tb_movie_254.title,user_tb_movie_254.id AS ID,user_tb_movie_254.category
                     FROM  user_tb_movie_254
                     INNER JOIN user_tb_user_movie_254
                     ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id )AS T
                     INNER JOIN user_tb_movie_img_254
-                    ON user_tb_movie_img_254.movie_id=T.ID";
+                    ON user_tb_movie_img_254.movie_id=T.ID
+                    ORDER BY T.ID";
                     
                     $res=mysqli_query($conn,$sql);
                     if($res)
                     {
+                        $counter=0;
+                        $lastId="fjedn";
                         $cat="cat_feed_";
-                    while($row=mysqli_fetch_assoc($res)){
-                        echo '<li id="'.$row['id'].'"><div><img src="'.$row['img_path'].'" id="'.$cat.$row['category'].'"></div></li>';
+                       while($row=mysqli_fetch_assoc($res)){
+                           if($counter){
+                           if($row['ID']==$lastId){
+                           $k='display:none';
+                           echo "<li style=$k class=movie_".$row['ID']."><div class=dontshow ><img src=".$row['img_path']." class=".$cat.$row['category']." ></div></li>";
+                           }
+                          else{
+                         echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']." class=".$cat.$row['category']."></div></li>";
+                          }
+                         }
+                         else{
+                             echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']." class=".$cat.$row['category']."></div></li>";
+                         }
+                         $lastId=$row['ID'];
+                         $counter++;
+                         
+                       }
+
+                       
+                  /*  while($row=mysqli_fetch_assoc($res)){
+                        echo '
+                        <li id="'.$row['id'].'">
+                        <div>
+                        <img src="'.$row['img_path'].'" class="'.$cat.$row['category'].'">
+                        </div>
+                        </li>
+                        
+                        ';
                       }
+                      */
                     }
                       ?>
                     
@@ -267,7 +298,7 @@ if (isset($_POST['id'])) {
 
             <section>
                 <ul>
-                    <li>
+                    <li >
                         <a href="create.php">Create</a>
                     </li>
                     <li>
@@ -336,18 +367,31 @@ if (isset($_POST['id'])) {
             </div>
         </section>
     </footer>
-
- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 
     <script>
         (function () {
          //   var explore = new exploreFeed();
          var cat= new loadCat();
          var explore=new exploreFeed_run();
-         
+
+       //  var listen=new addlistner();
+
+               $('[id]').each(function(){
+  var ids = $('[id="'+this.id+'"]');
+  if(ids.length>1 && ids[0]==this)
+    console.warn('Multiple IDs #'+this.id);
+});
         })();
+
+
+ 
     </script>
   
 </body>
 
 </html>
+<?php
+mysqli_close($conn);
+?>

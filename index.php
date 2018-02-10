@@ -70,7 +70,7 @@ session_start();
                     <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                         <div>hi <?=$_SESSION["user"]?></div> 
                         <form action="<?=$current?>" method="post">
-                        <button id="logoutbtn" name="logout" type="submit">logout</button>
+                        <button  name="logout" type="submit">logout</button>
                         </form>
                        
                     <?php }?>
@@ -132,7 +132,7 @@ session_start();
                     <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                        <li> <div> hi <?=$_SESSION["user"]?> </div></li>
                       <li>  <form action="<?=$current?>" method="post">
-                        <button id="logoutbtn" name="logout" type="submit">logout</button>
+                        <button  name="logout" type="submit">logout</button>
                         </form>
                        </li>
                     <?php }?>

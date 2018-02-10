@@ -69,7 +69,7 @@ session_start();
             <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                 <div>hi <?=$_SESSION["user"]?></div> 
                 <form action="<?=$current?>" method="post">
-                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                <button  name="logout" type="submit">logout</button>
                 </form>
                
             <?php }?>
@@ -131,7 +131,7 @@ session_start();
             <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                <li> <div> hi <?=$_SESSION["user"]?> </div></li>
               <li>  <form action="<?=$current?>" method="post">
-                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                <button  name="logout" type="submit">logout</button>
                 </form>
                </li>
             <?php }?>
@@ -159,18 +159,23 @@ session_start();
 <script>
  function readURL(input) {
             if (input.files && input.files[0]) {
+              //  var reader = new FileReader();
+                var filesAmount = input.files.length;
+
+                 for (i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#upload_img')
-                        .attr('src', e.target.result)
-                        .height(230);
-                };
-                $('#upload_img').css("display","block");
+                reader.onload = function(event) {
 
-                reader.readAsDataURL(input.files[0]);
+             $($.parseHTML('<img>')).attr('src', event.target.result).height(230).appendTo('#gallery');
+             
+             }
+
+                reader.readAsDataURL(input.files[i]);
             }
         }
+}
+    
 </script>
 
 <section class="steps_wrapper " style="justify-content: flex-start;padding: 20px;">
@@ -181,12 +186,11 @@ session_start();
      <h1>UPLOAD PHOTOS</h1>
      <label class="fileContainer">
          Upload....
-     <input name="files" type="file" onchange="readURL(this);" multiple>
+     <input type="file"  onchange="readURL(this);" name="files[]" multiple="multiple" required>
      </label>
      </section>
 
-   <img id="upload_img" src="#" alt="your image" />
-    
+   <article id="gallery"></article>
    </section>
    </section>
 </section>
@@ -292,13 +296,13 @@ session_start();
 
 
         <!--this two hidden inputs is for sending chosen theme and soundtrack-->
-        <input type="hidden" name="theme" id="theme_input" value="">
-        <input type="hidden" name="sound" id="sound_input" value="">
+        <input type="hidden" name="theme" id="theme_input" value="0">
+        <input type="hidden" name="sound" id="sound_input" value="0">
         <select name="cat" id="category_input" >
             
         </select>
         
-      <input type="text" name="title" placeholder="Enter Your Movie Tiltle">
+      <input type="text" name="title" placeholder="Enter Your Movie Tiltle" required>
       
       <input type="submit" value="Make My Movie" id="make_btnn">
       </form>

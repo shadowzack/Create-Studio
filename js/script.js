@@ -156,30 +156,64 @@ function loadCat() {
       imgtmp.src = "images/" + this.categoryName + ".jpg";
       inner_div = divElm.appendChild(document.createElement('div'));
       inner_div.innerHTML += "<h1>" + this.categoryName + "</h1>";
-      inner_div.addEventListener('click',filter_feed);
-
+      //inner_div.addEventListener('click',filter_feed);
+      // console.log(divElm.childNodes);
     });
 
-   
+
   });
 
-  
-  var feedNodes=document.getElementById('data_container').childNodes;
-  var arrLenght=feedNodes.length;
-  var filter_feed= function(){
-    for (let index = 0; index < arrLenght; index++) {
-     if(feedNodes[index].id!=this.parentElement.firstChild.id)
-     alert();
-      feedNodes[index].style.display="none";
-    }
 
+
+}
+//var addlistner=function (){
+$(document).ready(function () {
+  var myElem = document.getElementById('content');
+    if (myElem != null)
+    {
+  var cats = document.getElementById('content').children;
+  var l = cats.length;
+
+  for (let index = 0; index < l; index++) {
+
+    cats[index].firstChild.nextSibling.addEventListener('click', filter_feed);
+
+
+  }
+}
+
+});
+
+//}
+var lastSelectedvar;
+var G_flag = 0;
+
+function filter_feed() {
+
+
+
+
+  var feedNodes = document.getElementById('data_container').children;
+  var arrLenght = feedNodes.length;
+
+  if (G_flag)
+    lastSelectedvar.className = "";
+  G_flag++;
+  lastSelectedvar = this;
+  this.className = "create_container_altr";
+  for (let index = 0; index < arrLenght; index++) {
+    if(feedNodes[index].firstElementChild.className!="dontshow")
+          feedNodes[index].style.display = "block";
+          
+    var category = feedNodes[index].firstElementChild.firstElementChild.className.substr(9);
+
+
+    if (category != this.parentElement.firstChild.id.substr(4))
+
+      feedNodes[index].style.display = "none";
   }
 
 }
-
-(function (){
-  alert(document.getElementById('data_container').childNodes);
-})();
 
 function selectLoad() {
   $.getJSON("include/json/category.json", function (data) {

@@ -74,7 +74,7 @@ session_start();
             <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                 <div>hi <?=$_SESSION["user"]?></div> 
                 <form action="<?=$current?>" method="post">
-                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                <button  name="logout" type="submit">logout</button>
                 </form>
                
             <?php }?>
@@ -136,7 +136,7 @@ session_start();
             <?php }else{  $current=basename($_SERVER['PHP_SELF']);?>
                <li> <div> hi <?=$_SESSION["user"]?> </div></li>
               <li>  <form action="<?=$current?>" method="post">
-                <button id="logoutbtn" name="logout" type="submit">logout</button>
+                <button  name="logout" type="submit">logout</button>
                 </form>
                </li>
             <?php }?>
@@ -203,9 +203,25 @@ ON user_tb_movie_img_254.movie_id=T.ID";
 
            <?php
       
-      // echo "count ".mysqli_num_rows($res);
+      
+       $counter=0;
+       $lastId="fjedn";
       while($row=mysqli_fetch_assoc($res)){
-        echo "<li id=".$row['id']."><div><img src=".$row['img_path']."</div></li>";
+          if($counter){
+          if($row['ID']==$lastId){
+          $k='display:none';
+          echo "<li style=$k class=movie_".$row['ID']."><div><img src=".$row['img_path']." ></div></li>";
+          }
+         else{
+        echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
+         }
+        }
+        else{
+            echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
+        }
+        $lastId=$row['ID'];
+        $counter++;
+        
       }
 
       ?>

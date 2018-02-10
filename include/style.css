@@ -677,7 +677,15 @@ video {
 }
 
 /*create*/
-
+#gallery{
+    display: flex;
+    margin-left: 10px;
+}
+#gallery img{
+    display: block;
+    margin-left: 10px;
+    max-width: 400px;
+}
 .flex_upload {
     display: flex;
     flex-direction: row;
@@ -898,6 +906,7 @@ section.clear.parallax-4 {
 .img_holder img {
     display: block;
     width: 100%;
+    max-height: 100%;
 }
 
 /* The Close Button */
