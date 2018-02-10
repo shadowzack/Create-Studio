@@ -42,7 +42,7 @@ if(is_array($_FILES))
           
           
             }
-          header("Location: mymovies.php");
+          header("Location: mymovies.php?id=".$last_id);
        }
 
      
@@ -54,6 +54,6 @@ if(is_array($_FILES))
 
 
 
-      header("Location: mymovies.php");
+     // header("Location: mymovies.php?res=".$result);
  }  
 

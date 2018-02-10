@@ -177,7 +177,12 @@ INNER JOIN user_tb_user_movie_254
 ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id
 WHERE user_tb_user_movie_254.user_id='$uu' ";
 */
-
+if (empty($_GET)) {
+    $id=0;
+}
+else{
+    $id=$_GET['id'];
+}
 $sql="SELECT * FROM(SELECT user_tb_movie_254.title,user_tb_movie_254.id AS ID
 FROM  user_tb_movie_254
 INNER JOIN user_tb_user_movie_254
@@ -213,10 +218,16 @@ ON user_tb_movie_img_254.movie_id=T.ID";
           echo "<li style=$k class=movie_".$row['ID']."><div><img src=".$row['img_path']." ></div></li>";
           }
          else{
+             if($id=$row['ID'])
+             echo "<li id=newElm class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
+            else
         echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
          }
         }
         else{
+            if($id=$row['ID'])
+            echo "<li id=newElm class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
+           else
             echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
         }
         $lastId=$row['ID'];
@@ -344,7 +355,20 @@ else
             </div>
         </section>
     </footer>
+<script>
 
+
+     $(document).ready(function() {
+           
+           function fade_in(){
+           $("#newElm").fadeIn();
+         }
+           $("#newElm").fadeOut();
+           setTimeout(fade_in, 30);
+
+      
+       });
+</script>
  
 </body>
 
