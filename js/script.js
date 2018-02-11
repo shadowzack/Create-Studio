@@ -47,6 +47,24 @@ function feedElement(current) {
   appendElms();
 }
 
+
+//mymovies addlistner elemts from db
+function mymovie_addlistner() {
+  var goToEdit = function () {
+
+    var id = this.className;
+    window.location = "edit.php?id=" + id.substr(6);
+
+  }
+  var tmp = document.getElementById('data_container').childNodes;
+  var length = tmp.length;
+  for (let index = 0; index < length; index++) {
+    tmp[index].addEventListener('click', goToEdit);
+  }
+}
+
+
+
 function exploreFeed() {
   var obj;
   for (let index = 0; index < 2; index++) {
@@ -245,7 +263,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('#playMovie').on('click', function () {
-   
+
 
     var audio = new Audio('images/audio.mp3');
     audio.play();
@@ -256,7 +274,7 @@ $(document).ready(function () {
     clas = tempClass.className;
     var movieImges = document.getElementsByClassName(clas);
     var movieImges_lenght = movieImges.length;
-   
+
 
 
     function movieLOOP(i) {
@@ -265,7 +283,7 @@ $(document).ready(function () {
           tempClass.src = movieImges[i - 1].firstElementChild.firstElementChild.src;
         }
         if (--i) {
-          movieLOOP(i); 
+          movieLOOP(i);
         } else {
           tempClass.src = firstImg;
           document.getElementById('playMovie').style.display = "flex";

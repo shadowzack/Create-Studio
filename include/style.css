@@ -19,6 +19,7 @@ a {
     text-decoration: none;
 }
 
+
 /*main nav*/
 
 .top_nav {
@@ -122,6 +123,7 @@ a {
 #hamburger span:nth-last-child(2) {
     transform-origin: 0% 100%;
 }
+
 
 /*hamburger animation*/
 
@@ -435,7 +437,9 @@ a {
     border-color: rgb(56, 55, 54);
 }
 
+
 /*-------------------------------main content-------------------------------------------------*/
+
 
 /*index */
 
@@ -535,6 +539,7 @@ video {
     width: 100%;
     position: absolute;
 }
+
 
 /*explore*/
 
@@ -678,6 +683,7 @@ video {
 #data_container li:hover div img {
     opacity: 0.5;
 }
+
 
 /*create*/
 
@@ -830,6 +836,7 @@ section.clear.parallax-4 {
     background-image: url("../images/studio.jpg");
 }
 
+
 /*  light box*/
 
 .modal {
@@ -936,6 +943,7 @@ section.clear.parallax-4 {
     background: black;
 }
 
+
 /* The Close Button */
 
 .close {
@@ -982,6 +990,7 @@ section.clear.parallax-4 {
 .prev:hover {
     background: #fff;
 }
+
 
 /*create*/
 
@@ -1160,6 +1169,7 @@ section.clear.parallax-4 {
     border-bottom: 10px double #cfcfcf;
 }
 
+
 /*---------------------------------sign up--------------------------------------------------------*/
 
 .signup_container {
@@ -1250,6 +1260,7 @@ section.clear.parallax-4 {
     width: 100px;
     font-size: 15px;
 }
+
 
 /*--------------------footer-------------------------------------------------------------*/
 
@@ -1413,6 +1424,7 @@ footer {
     color: whitesmoke;
 }
 
+
 /*------------------------------------------------------mymovies------------------------------------------------*/
 
 .mymovieslog {
@@ -1466,4 +1478,29 @@ footer {
 
 #data_container li:hover div img {
     opacity: 0.5;
+}
+
+.edit_show {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit_show div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+    text-align: center;
+}
+
+.edit_show div img {
+    margin-top: 20px;
+    margin-left: 15px;
+    display: block;
+    height: 230px;
+}
+
+.edit_show div input {
+    width: 80%;
+    margin: 7px auto;
 }

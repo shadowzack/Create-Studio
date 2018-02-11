@@ -159,37 +159,24 @@ session_start();
 else{
 
 
-   /* $sql="SELECT *
-    FROM user_tb_user_movie_254
-    INNER JOIN works
-    ON has.id=works.engineer_id
-    WHERE project_id IN(SELECT user_tb_movie_254.id AS mid,
-    user_tb_movie_254.title AS tilte,user_tb_movie_img_254.img_path AS img_path
-    FROM user_tb_movie_254
-    INNER JOIN user_tb_movie_img_254
-    WHERE user_tb_movie_254.id=user_tb_movie_img_254.movie_id)AS T
-";*/
+
 $uu=$_SESSION["user_id"];
-/*
-$sql="SELECT user_tb_movie_254.title
-FROM  user_tb_movie_254
-INNER JOIN user_tb_user_movie_254
-ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id
-WHERE user_tb_user_movie_254.user_id='$uu' ";
-*/
+
 if (empty($_GET)) {
     $id=0;
 }
 else{
     $id=$_GET['id'];
 }
+
 $sql="SELECT * FROM(SELECT user_tb_movie_254.title,user_tb_movie_254.id AS ID
 FROM  user_tb_movie_254
 INNER JOIN user_tb_user_movie_254
 ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id
 WHERE user_tb_user_movie_254.user_id='$uu' )AS T
 INNER JOIN user_tb_movie_img_254
-ON user_tb_movie_img_254.movie_id=T.ID";
+ON user_tb_movie_img_254.movie_id=T.ID
+WHERE T.ID='$id'";
 
 
 
@@ -197,10 +184,11 @@ ON user_tb_movie_img_254.movie_id=T.ID";
        $r=mysqli_num_rows($res);
        if($res&&$r>0)
        {
+           $row=mysqli_fetch_assoc($res);
            ?>
              <section class="wrapper">
            <section id="explore_data">
-                    <h1>All Movies</h1>
+                    <h1><?=$row['title']?></h1>
                 <ul id="data_container">
 
     
@@ -208,7 +196,7 @@ ON user_tb_movie_img_254.movie_id=T.ID";
 
            <?php
       
-      
+      mysqli_data_seek($res, 0);
        $counter=0;
        $lastId="fjedn";
       while($row=mysqli_fetch_assoc($res)){
@@ -221,14 +209,14 @@ ON user_tb_movie_img_254.movie_id=T.ID";
              if($id==$row['ID'])
              echo "<li id=newElm class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
             else
-        echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
+        echo "<li style=flex:1 class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
          }
         }
         else{
             if($id==$row['ID'])
             echo "<li id=newElm class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
            else
-            echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
+            echo "<li style=flex:1 class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
         }
         $lastId=$row['ID'];
         $counter++;
@@ -239,6 +227,24 @@ ON user_tb_movie_img_254.movie_id=T.ID";
       </ul>
         </section>
         </section>
+        
+    
+       <section class="edit_show">
+       <?php
+        mysqli_data_seek($res, 0);
+       while($row=mysqli_fetch_assoc($res))
+       {
+           ?>
+             <form action="deleteimg.php?id=<?=$id?>" method="post">
+             <?php
+       echo "<div><img src=".$row['img_path']."> <input type=hidden name=img value=".$row['id']."><input type=submit name=delete_btn value=delete></div>";
+       ?>
+       </form>
+       <?php
+       }
+       ?>
+       </section>
+      
       <?php
 }
 else
@@ -360,15 +366,15 @@ else
 
      $(document).ready(function() {
            
-           function fade_in(){
+       /*    function fade_in(){
            $("#newElm").fadeIn();
          }
            $("#newElm").fadeOut();
            setTimeout(fade_in, 30);
 
       mark();
-      mymovie_addlistner();
-      
+      //mymovie_addlistner();
+      */
        });
        
 </script>
