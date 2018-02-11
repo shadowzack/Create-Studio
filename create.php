@@ -144,7 +144,7 @@ session_start();
 </header>
 
     <main>
-
+        <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data"> 
 <section class="clear parallax parallax-1">
     <div class="container create_imgData" >
       <h1>First Step</h1>
@@ -180,7 +180,7 @@ session_start();
 
 <section class="steps_wrapper " style="justify-content: flex-start;padding: 20px;">
 
-     <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data"> 
+    
      <section class="flex_upload">
  <section class="upload_feild">
      <h1>UPLOAD PHOTOS</h1>
@@ -305,13 +305,13 @@ session_start();
       <input type="text" name="title" placeholder="Enter Your Movie Tiltle" required>
       
       <input type="submit" value="Make My Movie" id="make_btnn">
-      </form>
+     
 
 
 
     </div>
   </section>
-
+</form>
     </main>
 
 
