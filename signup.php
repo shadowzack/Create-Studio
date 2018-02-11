@@ -12,7 +12,7 @@
     $gender=$_POST['gender'];
     $pass=$_POST['pass'];
     $repass=$_POST['repass'];
-
+if($pass==$repass){
     $sql="INSERT INTO user_tb_users_254 (firstname, lastname, addresss,email,phone,gender,pass)
     VALUES ('$firstname','$lastname','$address','$email','$phone','$gender','$pass')";
      $result=mysqli_query($conn,$sql);
@@ -29,6 +29,10 @@
      else {
         $message="email already exists";
      }
+    }
+    else{
+        $message="passwords are not the same try again";
+    }
    
    }
     

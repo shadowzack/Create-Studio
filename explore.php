@@ -183,6 +183,7 @@ if (isset($_POST['id'])) {
                         <a class="prev" onclick="">&#10094;</a>
                         <a class="next" onclick="">&#10095;</a>
                     <img src="images/logo_png.png" id="current_modal_img" alt="">
+                    <div id="playMovie">&#9654;</div>
                    </section>
                    <section class="content_holder" id="user_content">
                     <section>
@@ -383,6 +384,7 @@ if (isset($_POST['id'])) {
   if(ids.length>1 && ids[0]==this)
     console.warn('Multiple IDs #'+this.id);
 });
+mark();
         })();
 
 

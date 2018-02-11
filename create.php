@@ -437,6 +437,7 @@ $(document).ready(function(){
          var theme= new theme_run();
         var soundtrack=new soundtrack_run();
          var select=new selectLoad();
+         mark();
         })();
 </script>
    

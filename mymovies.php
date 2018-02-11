@@ -218,14 +218,14 @@ ON user_tb_movie_img_254.movie_id=T.ID";
           echo "<li style=$k class=movie_".$row['ID']."><div><img src=".$row['img_path']." ></div></li>";
           }
          else{
-             if($id=$row['ID'])
+             if($id==$row['ID'])
              echo "<li id=newElm class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
             else
         echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
          }
         }
         else{
-            if($id=$row['ID'])
+            if($id==$row['ID'])
             echo "<li id=newElm class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
            else
             echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']."></div></li>";
@@ -366,8 +366,9 @@ else
            $("#newElm").fadeOut();
            setTimeout(fade_in, 30);
 
-      
+      mark();
        });
+       
 </script>
  
 </body>
