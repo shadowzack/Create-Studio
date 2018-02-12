@@ -216,7 +216,7 @@ if (isset($_POST['id'])) {
                 
                 <ul id="data_container" >
                 <?php
-                    $sql="SELECT * FROM(SELECT user_tb_movie_254.title,user_tb_movie_254.id AS ID,user_tb_movie_254.category
+                    $sql="SELECT * FROM(SELECT user_tb_movie_254.sound,user_tb_movie_254.theme,user_tb_movie_254.title,user_tb_movie_254.id AS ID,user_tb_movie_254.category
                     FROM  user_tb_movie_254
                     INNER JOIN user_tb_user_movie_254
                     ON user_tb_user_movie_254.movie_id=user_tb_movie_254.id )AS T
@@ -230,18 +230,20 @@ if (isset($_POST['id'])) {
                         $counter=0;
                         $lastId="fjedn";
                         $cat="cat_feed_";
+                        
                        while($row=mysqli_fetch_assoc($res)){
+                        $filter_Sound=$row['theme'].' '.$row['sound'];
                            if($counter){
                            if($row['ID']==$lastId){
                            $k='display:none';
                            echo "<li style=$k class=movie_".$row['ID']."><div class=dontshow ><img src=".$row['img_path']." class=".$cat.$row['category']." ></div></li>";
                            }
                           else{
-                         echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']." class=".$cat.$row['category']."></div></li>";
+                         echo "<li class=movie_".$row['ID']."><div class='".$filter_Sound."'><img src=".$row['img_path']." class=".$cat.$row['category']."></div></li>";
                           }
                          }
                          else{
-                             echo "<li class=movie_".$row['ID']."><div><img src=".$row['img_path']." class=".$cat.$row['category']."></div></li>";
+                             echo "<li class=movie_".$row['ID']."><div class='".$filter_Sound."'><img src=".$row['img_path']." class=".$cat.$row['category']."></div></li>";
                          }
                          $lastId=$row['ID'];
                          $counter++;
